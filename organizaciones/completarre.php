@@ -1,42 +1,43 @@
 <?php
-include("connect_db.php");
+include("../registro/connect_db.php");
 
 //recibir los datos y almacenarlos en variables
 if(!empty($_POST))
 {
 	$alert = '';
-	if(empty($_POST['run']) || empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['telefono']) || empty($_POST['pass']) || empty($_POST['rol']))
+	if(empty($_POST['nombrer']) || empty($_POST['rutr']) || empty($_POST['direccionr']) || empty($_POST['tipo']) || empty($_POST['participantes']))
 	{
 		$alert = '<p>Todos los campos son obligatorios.</p>';
 	}else{
 
-    include "connect_db.php";
-  $run = $_POST['run'];
-	$nombre = $_POST['nombre'];
-	$email = $_POST['email'];
-	$telefono = $_POST['telefono'];
-	$pass = md5($_POST['pass']);
-	$fecha_reg = date("d/m/y");
-	$rol = $_POST['rol'];
+    include "../registro/connect_db.php";
+
+	$nombrer = $_POST['nombrer'];
+	$rutr = $_POST['rutr'];
+	$direccionr = $_POST['direccionr'];
+  $tipo = $_POST['tipo'];
+  $participantes = $_POST['participantes'];
+  $rol = $_POST['rol'];
+  
 	//verificar que el email no este duplicado
 		
-	$query = mysqli_query($conexion, "SELECT * FROM usuario WHERE email = '$email' AND run = '$run'");
+	$query = mysqli_query($conexion, "SELECT * FROM organizacion WHERE rutr = '$rutr'");
 	$result = mysqli_fetch_array($query);
 
 	if ($result > 0){
-		$alert = '<p> El correo o run ya esta registrado. </p>';
+		$alert = '<p> El rut del representante ya esta registrado. </p>';
 	}else{
 
 	//consulta para insertar
-	$query_insert = mysqli_query($conexion, "INSERT INTO usuario(run, nombre, email, telefono, pass, fecha_reg, roles_id)
-				VALUES ('$run','$nombre','$email','$telefono','$pass','$fecha_reg','$rol')");
+	$query_insert = mysqli_query($conexion, "INSERT INTO organizacion(representante_legal, run_representante, direccion, tipo_organizacion, numero_participantes, roles_id)
+				VALUES ('$nombrer','$rutr','$direccionr','$tipo','$participantes','$rol')");
 	//ejecutar consulta
 	
 	if($query_insert){
-		$alert = '<p> Usuario Creado. </p>';
+		$alert = '<p> Datos guardados. </p>';
 			
 		}else{
-		$alert = '<p> Error al crear el usuario </p>';
+		$alert = '<p> Error al ingresar Datos. </p>';
 			
 			}
 		}
@@ -113,19 +114,18 @@ if(!empty($_POST))
   <!-- FINAL DEL MENU-->
 
 <section class="formulario_de_registro">
-    <h4>Formulario de Registro</h4>
+    <h4>Completar registro</h4>
     <div><?php echo isset($alert)? $alert : ''; ?></div>
   <form action="" method="POST">
-    <input class="controls" type="run"      name="run"               id=""   placeholder="Ingrese RUT representante">
-    <input class="controls" type="nombre"   name="nombre"            id=""   placeholder="Ingrese Nombre">
-    <input class="controls" type="email"    name="email"             id=""   placeholder="Ingrese Correo">
-    <input class="controls" type="number"   name="telefono"          id=""   placeholder="Ingrese Telefono">
-    <input class="controls" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
-    <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña">
-    <label for="rol">Escoja un Rol:</label>
-    <select name="rol"> 
-    <option value="2">Organizacion</option>
-      </select>
+    <input class="controls" type="nombre"   name="nombrer"            id=""   placeholder="Ingrese nombre de Representante Legal">
+    <input class="controls" type="rut"      name="rutr"               id=""   placeholder="RUT Representante Legal">
+    <input class="controls" type="text"     name="direccionr"         id=""   placeholder="Dirección Representante Legal">
+    <input class="controls" type="text"     name="tipo"               id=""   placeholder="Tipo de Organización">
+    <input class="controls" type="number"   name="participantes"      id=""   placeholder="Numero de participantes">
+    <label for="rol">Escoja un Rol:</label><br>
+                            <select name="rol">
+                              <option value="2">Organizacion</option>
+                            </select>
         <p>Estoy de acuerdo con 
             <a href="">Terminos y Condiciones</a> 
         </p>
@@ -134,9 +134,7 @@ if(!empty($_POST))
         </a>
     
     <input class="boton2" type="reset">
-        <p>
-          <a href="../login.php">¿Ya tengo cuenta?</a>  
-        </p>
+       
   </form>
 </section>
 

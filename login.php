@@ -7,36 +7,32 @@ session_start();
 if(isset($_POST['submit'])){
 //llamamos variables
 $email = $_POST['email'];
-$pass = md5($_POST['pass']);
-//$rol_id = $_POST["rol_id"];
+$password = $_POST['pass'];
+$pass = md5($password);
+$rol_id = $_POST["rol_id"];
 //verificamos que usuario y pass sean el mismo
-$consulta = "SELECT*FROM usuario 
-                    where email='$email' and pass = '$pass'";
+$consulta1 = "SELECT*FROM usuario 
+                    WHERE email='$email' AND pass = '$pass'";
 
-$resultado=mysqli_query($conexion,$consulta);
+$resultado1=mysqli_query($conexion,$consulta1);
+$valor1 = mysqli_fetch_array($resultado1);
 
-if($resultado > 0)
-{
-$data = mysqli_fetch_array($resultado);
-$_SESSION['active']   =true;
-$_SESSION['id']       =$data['id'];
-$_SESSION['nombre']   =$data['nombre'];
-$_SESSION['email']    =$data['email'];
-$_SESSION['roles_id'] =$data['roles_id'];
+//ahora con esta consulta valido si usuario está en el domino del rol_id
+$consulta2 = "SELECT*FROM usuario WHERE email='$email' AND roles_id='$rol_id'";
 
-if($data['roles_id']==1){
-  echo "<script> window.location='administracion/admin.php'; </script>";
+$resultado2=mysqli_query($conexion,$consulta2);
+$valor2 = mysqli_fetch_array($resultado2);
+ 
+//aqui preguntamos si la ID es concordante con el tipo de usuario seleccionado
+if($valor2['roles_id']==1){
+  header("location:administracion/admin.php");
 }else
-if($data['roles_id']==2){
-  echo "<script> window.location='organizaciones/indexlogeado.php'; </script>";
+if($valor2['roles_id']==2){
+  header("location:organizaciones/completarre.php");
 }
 else{
-    echo "Error en la autentificacion";
-
-}
-
-}
-
+  echo "Error en la autentificacion";
+    }
 
 }
 
@@ -74,6 +70,14 @@ mysqli_close($conexion);
             </div>
             <div class="form-group" id="contraseña-group">
               <input class="form-control" type="password" placeholder="Contraseña" name="pass">
+            </div>
+
+            <div>
+            <label> Seleccione su rol </label>
+            <select name="rol_id">
+          <option value="1">Administrador</option> 
+          <option value="2">Organizacion</option>
+          </select>
             </div>
                 
                 <!-- BOTON PARA INGRESAR A LA PAGINA -->

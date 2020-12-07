@@ -10,6 +10,7 @@ h1,h2,h3,h4,h5{
     padding-right: 10px;
 }
 
+
 .altura{
     padding: 100px 0;
 }
@@ -130,6 +131,9 @@ nav.sps--blw .logotipo{
     background: url(../img/Hualpén.jpg) no-repeat center center fixed;
     background-size: cover;
 }
+
+
+
 
 
 /* FINAL REGISTRARSE */

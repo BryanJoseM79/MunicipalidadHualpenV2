@@ -1,3 +1,53 @@
+<?php
+include("../registro/connect_db.php");
+
+//recibir los datos y almacenarlos en variables
+if(!empty($_POST))
+{
+	$alert = '';
+	if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['telefono']) || empty($_POST['pass']) || empty($_POST['rol']))
+	{
+		$alert = '<p>Todos los campos son obligatorios.</p>';
+	}else{
+
+    include "../registro/connect_db.php";
+
+	$nombre = $_POST['nombre'];
+	$email = $_POST['email'];
+	$telefono = $_POST['telefono'];
+	$pass = md5($_POST['pass']);
+	$fecha_reg = date("d/m/y");
+	$rol = $_POST['rol'];
+	//verificar que el email no este duplicado
+		
+	$query = mysqli_query($conexion, "SELECT * FROM usuario WHERE email = '$email'");
+	$result = mysqli_fetch_array($query);
+
+	if ($result > 0){
+		$alert = '<p> El correo ya esta registrado. </p>';
+	}else{
+
+	//consulta para insertar
+	$query_insert = mysqli_query($conexion, "INSERT INTO usuario(nombre, email, telefono, pass, fecha_reg, roles_id)
+				VALUES ('$nombre','$email','$telefono','$pass','$fecha_reg','$rol')");
+	//ejecutar consulta
+	
+	if($query_insert){
+		$alert = '<p> Usuario Creado. </p>';
+			
+		}else{
+		$alert = '<p> Error al crear el usuario </p>';
+			
+			}
+		}
+	}
+}
+	//cerrar conexion
+  mysqli_close($conexion);
+  
+?>
+
+
 <!doctype html>
 
 <html lang="en">
@@ -145,14 +195,23 @@
 
                 <div class="col-md-9">
                     <section class="formulario-admininis">
+                    <div><?php echo isset($alert)? $alert : ''; ?></div>
                     <form action="" method="POST">
-                            <h5 class="">Igrese nombre</h5>
-                        <input class="inputines" type="nombre"   name="nombre"            id=""   placeholder="Ingrese su Nombre">
-                        <input class="inputines" type="email"    name="email"             id=""   placeholder="Ingrese su Correo">
-                        <input class="inputines" type="number"   name="telefono"          id=""   placeholder="Ingrese su Telefono">
-                        <input class="inputines" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
-                        <input class="inputines" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña">
-                        <input class="inputines" type="number"   name="organizacion_run"  id=""   placeholder="Ingrese el RUN de su Organización">
+                            <label class="">Ingrese nombre:</label>
+                            <input class="controls" type="nombre"   name="nombre"            id=""   placeholder="Ingrese su Nombre">
+                            <label class="">Ingrese Correo:</label>
+                            <input class="controls" type="email"    name="email"             id=""   placeholder="Ingrese su Correo">
+                            <label class="">Ingrese Telefono:</label>
+                            <input class="controls" type="number"   name="telefono"          id=""   placeholder="Ingrese su Telefono">
+                            <label class="">Ingrese Contraseña:</label>
+                            <input class="controls" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
+                            <label class="">Ingrese nuevamente su contraseña:</label>
+                            <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña"><br>
+                            <label for="rol">Escoja un Rol:</label><br>
+                            <select name="rol"> 
+                              <option value="1">Administrador</option>
+                              <option value="2">Organizacion</option>
+                            </select>
                            
                             <a href="../index2.html">
                             <input class="boton1" type="submit" name="submit" value="Registrarse">
