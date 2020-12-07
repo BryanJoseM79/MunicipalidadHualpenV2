@@ -1,0 +1,33 @@
+header{
+    padding-top: 100px;
+    
+}
+
+/* Estilos personalizados */
+#header{
+    background: #282828;
+    color: white;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+}
+#header .crear{
+    padding-top: 12px;
+}
+.color-principal{
+    background-color: tomato !important;
+    border-color: tomato !important;
+    color: white !important;
+}
+.barra-progreso{
+    background: black;
+    color: white;
+    padding-top: 7px;
+    padding-left: 7px;
+}
+.well{
+    margin-top: 15px;
+}
+/* separacion del footer */
+.footersep{
+    margin-top: 100px;
+}
