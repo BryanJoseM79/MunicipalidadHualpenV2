@@ -118,8 +118,13 @@ if(!empty($_POST))
     <div><?php echo isset($alert)? $alert : ''; ?></div>
   <form action="" method="POST">
     <input class="controls" type="nombre"   name="nombrer"            id=""   placeholder="Ingrese nombre de Representante Legal">
-    <input class="controls" type="rut"      name="rutr"               id=""   placeholder="RUT Representante Legal">
-    <input class="controls" type="text"     name="direccionr"         id=""   placeholder="Dirección Representante Legal">
+    <input class="controls" type="rut"      name="rutr"               id="txt_rut"   placeholder="Rut a validar, ej: 11111111-1">
+    
+    <button id="btnvalida" class="btn btn-default boton1">Valida RUT</button>
+      <p>&nbsp;</p>
+      <p class="text-info validacion" id="msgerror"></p>
+    
+      <input class="controls" type="text"     name="direccionr"         id=""   placeholder="Dirección Representante Legal">
     <input class="controls" type="text"     name="tipo"               id=""   placeholder="Tipo de Organización">
     <input class="controls" type="number"   name="participantes"      id=""   placeholder="Numero de participantes">
     <label for="rol">Escoja un Rol:</label><br>
@@ -167,5 +172,10 @@ if(!empty($_POST))
 
 <!-- menu -->
 <script src="../js/scrollPosStyler.min.js"></script>
+<!-- Fin menu -->
+
+<!-- Validar Rut -->
+<script src="../js/RutValidador.js"></script>
+<script src="../js/RutValidadorr.js"></script>
 </body>
 </html>

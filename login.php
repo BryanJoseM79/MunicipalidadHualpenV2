@@ -31,10 +31,27 @@ if($valor2['roles_id']==2){
   header("location:organizaciones/completarre.php");
 }
 else{
-  echo "Error en la autentificacion";
-    }
+?>
+<script>
+  alert("Hola que tal");
+</script>
 
+
+
+<html>
+  <div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+</html>
+
+<?php
+   
+  }
 }
+
 
 mysqli_close($conexion);
 ?>
@@ -84,7 +101,7 @@ mysqli_close($conexion);
             <input class="btn btn-primary" type="submit" value="Ingresar" name="submit">
              
              <a href="registro/registro.php" class="btn btn-primary">Registrarse</a>
-             <a href="registro/recuperarpas.html" class="btn btn-primary">Recuperar contraseña</a>
+             <a href="recuperarpas.php" class="btn btn-primary">Recuperar contraseña</a>
           </form>
           <div class="col-12 forgot">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -94,7 +111,6 @@ mysqli_close($conexion);
         </div>
     </div>
 </div>
-
 
 
 <!-- Optional JavaScript; choose one of the two! -->
