@@ -42,3 +42,31 @@
     color: white;
     font-size: 16px;
 }
+/* editar */
+.controlsss{
+    width: 400px;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-size: 18px;
+    color: white;
+
+}
+/* editar */
+.formulario-admininis2{
+    width: 500px;
+    background: #ff6a3d;
+    padding: 30px;
+    margin: 150px;
+    margin-top: 3px;
+    margin-bottom: 100px;
+    border-radius: 4px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    /* 
+    Agregamos a la clase del section que contiene todo un box-shadow para darle una sombra a la caja
+    */
+    box-shadow: 7px 13px 37px #000;
+}

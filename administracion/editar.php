@@ -1,42 +1,117 @@
 <?php
-
 include("../registro/connect_db.php");
 
-/*session_start();
-
-//Si la variable sesión está vacía
-if (!isset($_SESSION['roles_id'])) 
+//recibir los datos y almacenarlos en variables
+if(!empty($_POST))
 {
-   // nos envía a la siguiente dirección en el caso de no poseer autorización 
-   header("location:../index.html"); 
-}*/
+	$alert = '';
+	if(empty($_POST['run']) || empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['telefono']) || empty($_POST['rol']))
+	{
+		$alert = '<p>Todos los campos son obligatorios.</p>';
+	}else{
 
-?>
+    $idusuario = $_POST['id'];
+    $run = $_POST['run'];
+	$nombre = $_POST['nombre'];
+	$email = $_POST['email'];
+	$telefono = $_POST['telefono'];
+	$pass = md5($_POST['pass']);
+    $rol = $_POST['rol'];
+    
+	//verificar que el run y email no este duplicado
+
+	$query = mysqli_query($conexion, "SELECT * FROM usuario 
+                                        WHERE (run = '$run' AND id != $idusuario)
+                                        OR (email = '$email' AND id != $idusuario)");
+	$result = mysqli_fetch_array($query);
+
+	if ($result > 0){
+		$alert = '<p> El correo o run ya esta registrado. </p>';
+	}else{
+
+        if (empty($_POST['pass']))
+        {
+            $sql_update=mysqli_query($conexion,"UPDATE usuario
+                                                    SET run = '$run', nombre = '$nombre', email = '$email', telefono = '$telefono', roles_id = '$rol'
+                                                    WHERE id = $idusuario");
+            }else{
+                $sql_update=mysqli_query($conexion,"UPDATE usuario
+                                                    SET run = '$run', nombre = '$nombre', email = '$email', telefono = '$telefono', pass = '$pass' , roles_id = '$rol'
+                                                    WHERE id = $idusuario");
+            }
+	//ejecutar consulta
+	
+	if($sql_update){
+		$alert = '<p> Usuario Actualizado. </p>';
+			
+		}else{
+		$alert = '<p> Error al Actualizar el usuario </p>';
+			
+			}
+		}
+	}
+}
+
+// Mostrar datos
+
+if(empty($_GET['id']))
+{
+    header('location:admin.php');
+}
+//guardamos la variable id de la tabla usuario
+$iduser = $_GET['id'];
+//hacemos la sentencia sql
+$sql = mysqli_query($conexion,"SELECT u.id, u.run, u.nombre, u.email, u.telefono, (u.roles_id) as roles_id, (r.rol) as rol_nombre 
+                                FROM usuario u 
+                                INNER JOIN roles r 
+                                ON u.roles_id = r.id 
+                                WHERE u.id = $iduser");
+
+$result_sql = mysqli_num_rows($sql);
+
+if($result_sql == 0){
+    header('location:admin.php');
+}else{
+    $option = '';
+    while($data = mysqli_fetch_array($sql)){
+        $iduser     = $data['id'];
+        $run        = $data['run'];
+        $nombre     = $data['nombre'];
+        $email      = $data['email'];
+        $telefono   = $data['telefono'];
+        $idrol      = $data['roles_id'];
+        $rol        = $data['rol_nombre'];
 
 
-<!doctype html>
+        if($idrol == 1){
+            $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
+        }else if($idrol == 2){
+            $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
+        }else if($idrol == 3){
+            $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
+        }
+    }
+}
 
+
+
+?>	
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <!-- Estilos perzonalizados-->
-  <link rel="stylesheet" href="../css/stylos.css">
-  <link rel="stylesheet" href="../css/stylo_admin.css">
-  
-
-  
-  <title>Municipalidad de Hualpén</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- Estilos perzonalizados-->
+    <link rel="stylesheet" href="../css/stylos.css">
+    <link rel="stylesheet" href="../css/stylo_admin.css">
+    <link rel="stylesheet" href="../css/administracion2.css">
+    
+    <title>Municipalidad de Hualpén</title>
 </head>
-
 <body>
-
-<!-- MENU  -->
+    <!-- MENU -->
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
       <a class="navbar-brand" href="../index.html">
@@ -50,26 +125,31 @@ if (!isset($_SESSION['roles_id']))
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html"> Panel de Control <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
           </li>
-          <!--<li class="nav-item espacio-ingresar"> BOTON PARA SALIR
-            <a class="nav-link btn btn-dark "  href="../registro/salir.php">Salir</a>-->
           <li class="nav-item">
-            <a class="nav-link" href="../index.html">Proyectos</a>
+            <a class="nav-link" href="../somos.html">Somos</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button">
-              Entradas
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Servicios
             </a>
-            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">SOLCITUD DE VIVIENDA</a>
+              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
+              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
+            </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Usuarios</a>
+            <a class="nav-link" href="#">Sucursales</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
           <li class="nav-item espacio-ingresar">
-            <a class="nav-link btn btn-dark "  href="../index.html">Municipalidad</a>
+            <a class="nav-link btn btn-dark "  href="../index.html">Ingresar</a>
           </li>
           <li>
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >
@@ -83,7 +163,7 @@ if (!isset($_SESSION['roles_id']))
   </nav>
   <!-- FINAL DEL MENU-->
 
-<header id="header">
+  <header id="header">
   <div class="container">
       <div class="row">
         <div class="col-md-10">
@@ -102,9 +182,9 @@ if (!isset($_SESSION['roles_id']))
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Proyecto</a>
-              <a class="dropdown-item" href="#"></a>
-              <a class="dropdown-item" href="admin1.php">Agregar Usuario</a>
+              <a class="dropdown-item" href="#">Agregar Pagina</a>
+              <a class="dropdown-item" href="#">Agregar Entrada</a>
+              <a class="dropdown-item" href="#">Agregar Usuario</a>
             </div>
           </div>
         </div>
@@ -158,65 +238,71 @@ if (!isset($_SESSION['roles_id']))
                     </div>
                 </div>
 
-                <div class="col-md-9">
-                  <table class="table table-hover table-dark">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">fecha_reg</th>
-                        <th scope="col">Rol</th>
-                        
-                      </tr>
-
-                      <?php
-                       $query = mysqli_query($conexion,"SELECT u.id, u.nombre, u.email, u.telefono, u.fecha_reg, r.rol  
-                       FROM `usuario` AS u INNER JOIN roles AS r ON u.roles_id = r.id");
-                      
-                      $result = mysqli_num_rows($query);
-                      if($result > 0){
-
-                        while ($data = mysqli_fetch_array($query)){
 
 
-                       ?>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><?php echo $data["id"]; ?></th>
-                        <td><?php echo $data["nombre"];?></td>
-                        <td><?php echo $data["email"]; ?></td>
-                        <td><?php echo $data["telefono"]; ?></td>
-                        <td><?php echo $data["fecha_reg"]; ?></td>
-                        <td><?php echo $data['rol']; ?></td>
-                        <td>
-                          <a class ="editar" href ="editar.php?id=<?php echo $data["id"];?>"> Editar </a>
-                          <a class ="" href ="#"> eliminar </a>
-                        </td>   
-                    </tr>
+  
 
-                  <?php
-                  }
-                }
-                ?>
-                    </tbody>
-                  </table>
-                      </div>
-                  </div>
-                </div>
-            </ul>
-          </div>
+  <div class="col-md-9">
+<section class="formulario-admininis2">
+    <h4>Actualizar Registro</h4>
+    <div><?php echo isset($alert)? $alert : ''; ?></div>
+
+  <form action="" method="POST">
+    <input type="hidden" name="id" value="<?php echo $iduser; ?>"> 
+    <p for="run">RUT: </p>
+    <input class="controlsss" type="run"      name="run"               id=""   placeholder="Ingrese RUT representante" value="<?php echo $run;?>">
+    <p for="nombre"> Nombre: </p>
+    <input class="controls" type="nombre"   name="nombre"            id=""   placeholder="Ingrese Nombre" value="<?php echo $nombre;?>">
+    <p for="email"> Email:
+
+    </p>
+    <input class="controls" type="email"    name="email"             id=""   placeholder="Ingrese Correo" value="<?php echo $email;?>">
+    <p for="telefono"> Telefono:</p>
+    <input class="controls" type="number"   name="telefono"          id=""   placeholder="Ingrese Telefono" value="<?php echo $telefono;?>">
+    <p for="password">Contraseña: </p>
+    <input class="controls" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
+    <p for="password"> Repita contraseña: </p>
+    <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña">
+    <p for="rol">Escoja un Rol:</p>
+
+    <?php
+     $query_rol=mysqli_query($conexion,"SELECT*FROM roles");
+     $result_rol= mysqli_num_rows($query_rol);
+    
+    ?>
+
+    <select name="rol" id="rol" class="notItemOne"> 
+        <?php 
+        echo $option;
+        if($result_rol > 0)
+        {
+            while ($rol = mysqli_fetch_array($query_rol)){
+        ?>      
+        <option value="<?php echo $rol["idrol"];?>"><?php echo $rol["rol"]?></option> 
+        <?php 
+            }
+        }
+        ?>
+      </select>
+
+
+    
+
+
+
+       
+        <a href="../index2.html">
+        <input class="boton1" type="submit" name="submit" value="Actualizar Usuario">
+        </a>
+    
+    <input class="boton2" type="reset">
+       
         </div>
-      </div>
-    </section>
+  </form>
+</section>
 
 
-
-
-
-  <footer class="footersep">
+<footer class="footersep">
 
     <img class="logotipo-footer" src="../img/unnamed (1).png" alt=""> <br>
     <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook">
@@ -227,7 +313,6 @@ if (!isset($_SESSION['roles_id']))
 
     </p>
   </footer>
-
 </body>
 
 
@@ -244,11 +329,7 @@ if (!isset($_SESSION['roles_id']))
   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="../js/bootstrap.js"></script>
 
-
 <!-- menu -->
 <script src="../js/scrollPosStyler.min.js"></script>
-
-
 </body>
-
 </html>

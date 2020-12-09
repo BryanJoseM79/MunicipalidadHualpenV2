@@ -193,7 +193,7 @@ if(!empty($_POST))
                     </div>
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-9">                                           
                     <section class="formulario-admininis">
                     <div><?php echo isset($alert)? $alert : ''; ?></div>
                     <form action="" method="POST">

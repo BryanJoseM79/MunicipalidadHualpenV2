@@ -90,3 +90,14 @@ body{
     background-color: aliceblue;
     color: aqua;
 }
+
+.editar{
+    
+    color: aquamarine !important;
+    
+}
+
+.notItemOne option:first-child{
+    display: none;
+}
+
