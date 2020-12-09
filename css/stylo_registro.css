@@ -89,6 +89,7 @@ body{
 .validacion{
     background-color: aliceblue;
     color: aqua;
+<<<<<<< HEAD
 }
 
 .editar{
@@ -101,3 +102,7 @@ body{
     display: none;
 }
 
+=======
+    font-size: 45px;
+}
+>>>>>>> 506a03422005d56cd5fae1a4349626d5b2f6ffb9
