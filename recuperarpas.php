@@ -1,24 +1,3 @@
-<?php
-  include("connect_db.php");
-  
-  $errors = array();
-  if(!empty($_POST));
-  {
-    $email = $mysqli->real_escape_string($_POST['email']);
-    if(!isEmail($email)){
-      $errors[] = "Debe ingresar un correo electronico valido"
-      if(emailExiste($email)){
-        $user_id = getValor('id','correo', $email);
-        $user_id = getValor('nombre','correo', $email);
-        $token = generaTokenPass($email);
-      }
-    }
-  }
-?>
-
-
-
-
 <!doctype html>
 <html lang="en">
 
@@ -44,7 +23,7 @@
             <img class="img-fluid" src="img/unnamed (1).png" alt="">
           </div>
 
-          <form class="col-12" action=""  method="POST" >
+          <form class="col-12" action="iniciar_recupero.php"  method="POST" >
             <div class="form-group" id="user-group">
               <input class="form-control" type="text" placeholder="Correo electronico" name="email">
             </div>
