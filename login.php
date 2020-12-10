@@ -103,14 +103,19 @@ mysqli_close($conexion);
     <a class="dropdown-item" href="#" value="2">Organización</a>
   </div>
 -->
-</div>    
-            <label> Seleccione su rol</label>
+  
+            <label class="rol"> Seleccione su rol</label>
             <select name="roles_id" >
           <option value="1">Administrador</option> 
           <option value="2">Organizacion</option>
           </select>
+<<<<<<< HEAD
             
 -->
+=======
+            </div>
+
+>>>>>>> dfa911441dbab27026e7730dc1e5518e3688be9c
                 <!-- BOTON PARA INGRESAR A LA PAGINA -->
                 <br>
             <input class="btn btn-primary" type="submit" value="Ingresar" name="submit">

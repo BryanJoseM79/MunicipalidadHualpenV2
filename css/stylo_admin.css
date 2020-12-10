@@ -32,3 +32,37 @@ header{
 .footersep{
     margin-top: 100px;
 }
+.bajo-tabla{
+    margin-top: 20px;
+}
+.derecha-buscar{
+    margin-left: 561px;
+}
+.warrrrning{
+    color: red;
+}
+.p-eliminar{
+    color: red;
+    font-size: 25px;
+}
+.boton-cancelar{
+    border-radius: 5px;
+    background-color: rgb(61, 219, 56);
+    width: 150px;
+    height: 150px;
+    color: white;
+    font-size: 25px;
+    padding: 15px;
+}
+
+.boton-eliminar > input{
+    
+        border-radius: 5px;
+        background-color: rgb(236, 32, 32);
+        width: 160px;
+        height: 64px;
+        color: white;
+        font-size: 25px;
+        padding: 15px;
+   
+}

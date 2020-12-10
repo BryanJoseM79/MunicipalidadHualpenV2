@@ -199,16 +199,19 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
                 <div class="col-md-9">
                 <section class="">
                     <div class= "">
-                        <h2>¿Está seguro de eliminar el siguiente registro?</h2>
-                        <p> RUT: <span> <?php echo $run; ?></span></p>
-                        <p> Nombre: <span> <?php echo $nombre; ?></span></p>
-                        <p> Correo: <span> <?php echo $email; ?></span></p>
-                        <p> Tipo de Usuario: <span> <?php echo $rol; ?></span></p>
+                        <h2>¿Está seguro de </h2><h1 class="warrrrning">eliminar</h1><h2> el siguiente registro?</h2>
+                        <p class="p-eliminar">> RUT: <span> <?php echo $run; ?></span></p>
+                        <p class="p-eliminar">> Nombre: <span> <?php echo $nombre; ?></span></p>
+                        <p class="p-eliminar">> Correo: <span> <?php echo $email; ?></span></p>
+                        <p class="p-eliminar">> Tipo de Usuario: <span> <?php echo $rol; ?></span></p>
 
                         <form method="POST" action=""> 
                             <input type="hidden" name="idusuario" value="<?php echo $idusuario; ?>">
-                            <a href = "admin.php"> Cancelar</a>
-                            <input type="submit" value="aceptar" >               
+                            
+                            <a href = "admin.php" class="boton-cancelar"> Cancelar</a>
+                            <a href="" class="boton-eliminar">
+                            <input type="submit" value="aceptar" >      
+                            </a>         
                         </form>
 
 
