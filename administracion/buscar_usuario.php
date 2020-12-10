@@ -180,6 +180,15 @@ if (!isset($_SESSION['roles_id']))
                     
   
                 </div>
+                <?php
+                 //-------------busqueda-----------
+                 $busqueda = strtolower($_REQUEST['busqueda']);
+                 if(empty($busqueda)){
+                   header("location: admin.php");
+                   mysqli_close($conexion);
+                 }
+                ?>
+
                
 <div class="col-md-9 buscar-a-izquierda">
 <form action="buscar_usuario.php" method="GET" class="">
@@ -195,6 +204,7 @@ if (!isset($_SESSION['roles_id']))
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">RUT</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
@@ -205,7 +215,7 @@ if (!isset($_SESSION['roles_id']))
 
                       <?php
 
-                      //-------------busqueda-----------
+                     
                       //sentencia sql para buscar a traves de usuario
                       $rol='';
                       if($busqueda == 'administrador'){

@@ -109,7 +109,7 @@ mysqli_close($conexion);
           <option value="1">Administrador</option> 
           <option value="2">Organizacion</option>
           </select>
-            </div>
+            
 -->
                 <!-- BOTON PARA INGRESAR A LA PAGINA -->
                 <br>
