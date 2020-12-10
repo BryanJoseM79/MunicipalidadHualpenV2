@@ -1,5 +1,5 @@
 .formulario-admininis{
-    width: 400px;
+    width: 525px;
     background: #ff6a3d;
     padding: 30px;
     margin: 150px;
@@ -70,6 +70,7 @@
     */
     box-shadow: 7px 13px 37px #000;
 }
+<<<<<<< HEAD
 /* paginador*/
 .paginador ul{
 padding: 15px;
@@ -101,3 +102,9 @@ justify-content: flex-end;
     border: 1px solid #ff501b;
 
 }
+=======
+
+.altura-footer-admin{
+    margin-top: 200px;
+}
+>>>>>>> da45374d577249c4e1b7d17c124921092e8e1f39

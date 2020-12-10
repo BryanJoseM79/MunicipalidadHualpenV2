@@ -90,17 +90,32 @@ mysqli_close($conexion);
             </div>
 
             <div>
-            <label> Seleccione su rol </label>
-            <select name="rol_id">
+            
+              <!-- DROOPDOWN -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger2  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Seleccione su Rol
+  </button>
+  
+  <div class="dropdown-menu" name="rol_id">
+    <a class="dropdown-item" href="#" value="1">Administrador</a>
+    <a class="dropdown-item" href="#" value="2">Organización</a>
+  </div>
+  
+</div>    <!--
+            <label> Seleccione su rol</label>
+            <select name="rol_id" >
           <option value="1">Administrador</option> 
           <option value="2">Organizacion</option>
           </select>
             </div>
-                
+-->
                 <!-- BOTON PARA INGRESAR A LA PAGINA -->
+                <br>
             <input class="btn btn-primary" type="submit" value="Ingresar" name="submit">
              
              <a href="registro/registro.php" class="btn btn-primary">Registrarse</a>
+             
              <a href="recuperarpas.php" class="btn btn-primary">Recuperar contraseña</a>
           </form>
           <div class="col-12 forgot">

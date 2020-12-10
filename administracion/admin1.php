@@ -207,12 +207,27 @@ if(!empty($_POST))
                             <input class="controls" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
                             <label class="">Ingrese nuevamente su contraseña:</label>
                             <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña"><br>
+                            
+  <div class="btn-group">
+  <button type="button" class="btn btn-danger3  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Seleccione su Rol
+  </button>
+  
+  <div class="dropdown-menu" name="rol">
+    <a class="dropdown-item" href="#" value="1">Administrador</a>
+    <a class="dropdown-item" href="#" value="2">Organización</a>
+    
+    
+  </div>
+</div>
+                            <!--
+                            
                             <label for="rol">Escoja un Rol:</label><br>
-                            <select name="rol"> 
+                            <select name="rol" class="btn-danger2"> 
                               <option value="1">Administrador</option>
                               <option value="2">Organizacion</option>
                             </select>
-                           
+-->
                             <a href="../index2.html">
                             <input class="boton1" type="submit" name="submit" value="Registrarse">
                             </a>
@@ -232,17 +247,42 @@ if(!empty($_POST))
 
 
 
-  <footer class="footersep">
+  <!-- INICIO FOOTER -->
+  <footer class="altura-footer-admin">
+    <div class="row justify-content-center">
+      <div class="col-sm-4 col-md3 item">
+        <a href="">
+        <img class="logotipo-footer" src="../img/unnamed (1).png" alt="">
+        </a>
+      </div>
 
-    <img class="logotipo-footer" src="../img/unnamed (1).png" alt=""> <br>
-    <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook">
-    <img class="logotipo-redes-sociales" src="../img/instagram-logo.svg" alt="Instagram">
-    <img class="logotipo-redes-sociales " src="../img/twitter-logo-button.svg" alt="Twitter">
-
-    <p class="altura-footer"> "Lenga, verdadero sabor de mar"
-
-    </p>
+    <div class="col-sm-4 col-md3 item">
+      <a href="" class="">
+      <img class="logotipo-ambiente" src="../img/Logo-Ambiente-300x300.png" alt="">
+      </a>
+    </div> 
+      <div class="col-sm-4 col-md3 item">
+        <h3 class="contacto text-left">CONTACTO</h3>
+          <p class="text-left">Calle Patria Nueva Nº 1035 (Ex Escuela Perla del Bio Bio) Hualpén</p>
+          <p class="text-left">Región del Bío Bío, Chile</p>
+          <p class="text-left">Email: municipalidad@hualpenciudad.cl</p>
+          <p class="text-left">Atención Oficina de Partes de Lunes a Viernes de;</p>
+          <p class="text-left">08:30 Hrs a 14:00 Hrs.</p>
+      </div> 
+    </div>
+    <a href="https://www.facebook.com/Munihualpen" target="_blank">
+      <img class="logotipo-redes-sociales-footer" src="../img/facebook-logo-button.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/explore/locations/1871656843054017/municipalidad-de-hualpen/" target="_blank">
+      <img class="logotipo-redes-sociales-footer" src="../img/instagram-logo.svg" alt="Instagram">
+    </a>
+    <a href="https://twitter.com/hualpenciudad" target="_blank">
+      <img class="logotipo-redes-sociales-footer " src="../img/twitter-logo-button.svg" alt="Twitter">
+    </a>
+      <p class="altura-footer"> "Lenga, verdadero sabor de mar"</p>
   </footer>
+  
+  <!-- FIN DEL FOOTER -->
 
 </body>
 
