@@ -58,66 +58,79 @@ if(!empty($_POST))
     <link rel="stylesheet" href="../css/stylo_registro.css">
     <link rel="stylesheet" href="../css/stylos.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/loggin.css">
     <title>Municipalidad de Hualpén</title>
 </head>
 <body>
-    <!-- MENU -->
-  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
-      <a class="navbar-brand" href="../index.html">
-        <img class="logotipo" src="../img/unnamed (1).png" alt="logo-municipalidad">
+      <a class="navbar-brand" href="index.html">
+        <img class="logotipo" src="../img/DDDDDASD.png" alt="logo-municipalidad">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link letras-menu" href="../index.html">Inicio</a>
+          </li>
+         
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link letras-menu" href="somos.html">Somos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../somos.html">Somos</a>
+          <li class="nav-item letras-menu active">
+            <a class="nav-link" href="concejomuni/concejomuni.html">Concejo Municipal</a>
+          </li> 
+          <li class="nav-item letras-menu active">
+            <a class="nav-link" href="concejomuni/alcaldesa.html">Alcaldesa</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown letras-menu active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Servicios
+              Proyectos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">SOLCITUD DE VIVIENDA</a>
-              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
-              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
+              <a class="dropdown-item" href="proyectos/proyecto1.html">Brisas de labranza - II</a>
+              <a class="dropdown-item" href="proyectos/proyecto2.html">Construcción de Nichos</a>
+              <a class="dropdown-item" href="proyectos/proyecto3.html">Beca alimentación</a>
+              <a class="dropdown-item" href="proyectos/proyecto4.html">Beneficio Tablet</a>
             </div>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sucursales</a>
+          <li class="nav-item active letras-menu">
+            <a class="nav-link" href="proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active letras-menu">
             <a class="nav-link" href="#">Contacto</a>
           </li>
-          <li class="nav-item espacio-ingresar">
-            <a class="nav-link btn btn-dark "  href="../index.html">Ingresar</a>
+          <li class="nav-item espacio-ingresar active " >
+            <a class="nav-link btn boton-ingresar-naranjo "  href="login.php">Ingresar</a>
           </li>
           <li>
+            <a href="https://www.facebook.com/Munihualpen" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >
+          </a>
+          <a href="https://www.instagram.com/explore/locations/1871656843054017/municipalidad-de-hualpen/" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/instagram-logo.svg" alt="Instagram">
+          </a>
+          <a href="https://twitter.com/hualpenciudad" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/twitter-logo-button.svg" alt="Twitter">
+          </a>
           </li>
         </ul>
       </div>
     </div>
-    
-  </nav>
+</nav>
   <!-- FINAL DEL MENU-->
 
 <section class="formulario_de_registro">
     <h4>Formulario de Registro</h4>
     <div><?php echo isset($alert)? $alert : ''; ?></div>
   <form action="" method="POST">
-    <input class="controls" type="run"      name="run"               id=""   placeholder="Ingrese RUT representante">
+    <input class="controls" type="run"      name="run"               id=""   placeholder="Rut a validar, ej: 11111111-1">
     <input class="controls" type="nombre"   name="nombre"            id=""   placeholder="Ingrese Nombre">
     <input class="controls" type="email"    name="email"             id=""   placeholder="Ingrese Correo">
     <input class="controls" type="number"   name="telefono"          id=""   placeholder="Ingrese Telefono">
@@ -125,6 +138,7 @@ if(!empty($_POST))
     <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña">
     
     <div class="btn-group">
+      <!--
   <button type="button" class="btn btn-danger3  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Seleccione su Rol
   </button>
@@ -136,14 +150,15 @@ if(!empty($_POST))
     
     
   </div>
+-->
 </div>
 
-    <!--
-    <label for="rol">Escoja un Rol:</label>
+ 
+    <label for="rol" class="rol">Escoja un Rol:</label>
     <select name="rol"> 
     <option value="2">Organizacion</option>
       </select>
--->
+
         <p>Estoy de acuerdo con 
             <a href="">Terminos y Condiciones</a> 
         </p>

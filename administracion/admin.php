@@ -179,17 +179,18 @@ if (!isset($_SESSION['roles_id']))
      
 </div>
 
-<div class="col-md-9 buscar-a-izquierda">
-<form action="buscar_usuario.php" method="GET" class="">
+<div class="col-md-9 ">
+<form action="buscar_usuario.php" method="GET" class="derecha-buscar">
     <input type="text" name="busqueda" id="busquedda" placeholder="Buscar">
     <input type="submit" value="Buscar" class="">
 </form>
 
-<div class="col-md-5">
-                  <table class="table table-hover table-dark">
+<div class="col-md-5 bajo-tabla">
+                  <table class="table table-hover table-dark ">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">RUT</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
@@ -311,7 +312,7 @@ if (!isset($_SESSION['roles_id']))
 
   
   <!-- INICIO FOOTER -->
-<footer>
+<footer class="espacio-superior-footer">
   <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-4 col-md3 item">

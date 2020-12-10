@@ -181,38 +181,49 @@ if (!isset($_SESSION['roles_id']))
   
                 </div>
                
-<div class="col-md-9 buscar-a-izquierda">
-<form action="buscar_usuario.php" method="GET" class="">
-   <input type="text" name="busqueda" id="busquedda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
+<div class="col-md-9 ">
+<form action="buscar_usuario.php" method="GET" class="derecha-buscar">
+   <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
    <input type="submit" value="Buscar" class="">
 </form>
- </div>
+ 
 
                 
 
-                <div class="col-md-9">
+                <div class="col-md-5 bajo-tabla">
                   <table class="table table-hover table-dark">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">RUT</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">fecha_reg</th>
                         <th scope="col">Rol</th>
                         
+                        
                       </tr>
 
                       <?php
 
                       //-------------busqueda-----------
+                      $busqueda = strtolower($_REQUEST['busqueda']);
+                      if(empty($busqueda)){
+                        header("location: admin.php");
+                        mysqli_close($conexion);
+                      }
                       //sentencia sql para buscar a traves de usuario
+
+                      $busqueda=$_GET['busqueda'];
                       $rol='';
                       if($busqueda == 'administrador'){
                           $rol = "OR roles_id LIKE '%1%'";
                       }else if($busqueda == 'organizacion'){
                           $rol = "OR roles_id LIKE '%2%'";
                       }
+                      
+                      
 
                       $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` 
                                                                 WHERE( id LIKE '%$busqueda%' OR
@@ -326,6 +337,7 @@ if (!isset($_SESSION['roles_id']))
           </div>
         </div>
       </div>
+      </div>
     </section>
 
 
@@ -333,7 +345,7 @@ if (!isset($_SESSION['roles_id']))
 
 
    <!-- INICIO FOOTER -->
-<footer>
+<footer class="espacio-superior-footer">
   <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-4 col-md3 item">

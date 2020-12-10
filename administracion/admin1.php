@@ -195,23 +195,24 @@ if(!empty($_POST))
                 </div>
 
                 <div class="col-md-9">                                           
-                    <section class="formulario-admininis">
+                    <section class="formulario-admininis2">
                     <div><?php echo isset($alert)? $alert : ''; ?></div>
                     <form action="" method="POST">
                             <label class="">Ingrese RUT:</label>
-                            <input class="controls" type="run"   name="run"                  id=""   placeholder="Ingrese su RUT">
+                            <input class="input-editar" type="run"   name="run"                  id=""   placeholder="Ingrese su RUT">
                             <label class="">Ingrese nombre:</label>
-                            <input class="controls" type="nombre"   name="nombre"            id=""   placeholder="Ingrese su Nombre">
+                            <input class="input-editar" type="nombre"   name="nombre"            id=""   placeholder="Ingrese su Nombre">
                             <label class="">Ingrese Correo:</label>
-                            <input class="controls" type="email"    name="email"             id=""   placeholder="Ingrese su Correo">
+                            <input class="input-editar" type="email"    name="email"             id=""   placeholder="Ingrese su Correo">
                             <label class="">Ingrese Telefono:</label>
-                            <input class="controls" type="number"   name="telefono"          id=""   placeholder="Ingrese su Telefono">
+                            <input class="input-editar" type="number"   name="telefono"          id=""   placeholder="Ingrese su Telefono">
                             <label class="">Ingrese Contraseña:</label>
-                            <input class="controls" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
+                            <input class="input-editar" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
                             <label class="">Ingrese nuevamente su contraseña:</label>
-                            <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña"><br>
+                            <input class="input-editar" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña"><br>
                             
   <div class="btn-group">
+    <!--
   <button type="button" class="btn btn-danger3  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Seleccione su Rol
   </button>
@@ -219,18 +220,18 @@ if(!empty($_POST))
   <div class="dropdown-menu" name="rol">
     <a class="dropdown-item" href="#" value="1">Administrador</a>
     <a class="dropdown-item" href="#" value="2">Organización</a>
-    
-    
-  </div>
-</div>
-                            <!--
+
+-->
+  
+
+                            
                             
                             <label for="rol">Escoja un Rol:</label><br>
                             <select name="rol" class="btn-danger2"> 
                               <option value="1">Administrador</option>
                               <option value="2">Organizacion</option>
                             </select>
--->
+</div>
                             <a href="../index2.html">
                             <input class="boton1" type="submit" name="submit" value="Registrarse">
                             </a>
