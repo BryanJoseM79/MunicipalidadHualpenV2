@@ -216,17 +216,42 @@ if (!isset($_SESSION['roles_id']))
 
 
 
-  <footer class="footersep">
+  <!-- INICIO FOOTER -->
+  <footer class="altura5">
+    <div class="row justify-content-center">
+      <div class="col-sm-4 col-md3 item">
+        <a href="">
+        <img class="logotipo-footer" src="../img/unnamed (1).png" alt="">
+        </a>
+      </div>
 
-    <img class="logotipo-footer" src="../img/unnamed (1).png" alt=""> <br>
-    <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook">
-    <img class="logotipo-redes-sociales" src="../img/instagram-logo.svg" alt="Instagram">
-    <img class="logotipo-redes-sociales " src="../img/twitter-logo-button.svg" alt="Twitter">
-
-    <p class="altura-footer"> "Lenga, verdadero sabor de mar"
-
-    </p>
+    <div class="col-sm-4 col-md3 item">
+      <a href="" class="">
+      <img class="logotipo-ambiente" src="../img/Logo-Ambiente-300x300.png" alt="">
+      </a>
+    </div> 
+      <div class="col-sm-4 col-md3 item">
+        <h3 class="contacto text-left">CONTACTO</h3>
+          <p class="text-left">Calle Patria Nueva Nº 1035 (Ex Escuela Perla del Bio Bio) Hualpén</p>
+          <p class="text-left">Región del Bío Bío, Chile</p>
+          <p class="text-left">Email: municipalidad@hualpenciudad.cl</p>
+          <p class="text-left">Atención Oficina de Partes de Lunes a Viernes de;</p>
+          <p class="text-left">08:30 Hrs a 14:00 Hrs.</p>
+      </div> 
+    </div>
+    <a href="https://www.facebook.com/Munihualpen" target="_blank">
+      <img class="logotipo-redes-sociales-footer" src="../img/facebook-logo-button.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/explore/locations/1871656843054017/municipalidad-de-hualpen/" target="_blank">
+      <img class="logotipo-redes-sociales-footer" src="../img/instagram-logo.svg" alt="Instagram">
+    </a>
+    <a href="https://twitter.com/hualpenciudad" target="_blank">
+      <img class="logotipo-redes-sociales-footer " src="../img/twitter-logo-button.svg" alt="Twitter">
+    </a>
+      <p class="altura-footer"> "Lenga, verdadero sabor de mar"</p>
   </footer>
+  
+  <!-- FIN DEL FOOTER -->
 
 </body>
 

@@ -1,5 +1,5 @@
 .formulario-admininis{
-    width: 400px;
+    width: 525px;
     background: #ff6a3d;
     padding: 30px;
     margin: 150px;
@@ -69,4 +69,8 @@
     Agregamos a la clase del section que contiene todo un box-shadow para darle una sombra a la caja
     */
     box-shadow: 7px 13px 37px #000;
+}
+
+.altura-footer-admin{
+    margin-top: 200px;
 }

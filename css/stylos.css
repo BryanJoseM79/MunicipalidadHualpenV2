@@ -1,18 +1,26 @@
-
+/* Etiquetas globales */
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h1,h2,h3,h4,h5{
     font-weight: bold;
 }
+/* ____________________*/
+
+
+/* Clases de utilidad */
 .espacio-ingresar{
     padding-left: 5px;
     padding-right: 10px;
 }
-
-
 .altura{
     padding: 100px 0;
+    
+}
+
+.altura5{
+    padding: 100px 0;
+    margin-top: 300px;
 }
 .altura-footer{
     padding: 20px 0;
@@ -20,28 +28,47 @@ h1,h2,h3,h4,h5{
 
 
 .logotipo{
-    width: 70px;
+    width: 85px;
     padding: 10px 0;
+    
 }
 
 .sps--abv{
     
-    background-color: black;
+    background-color: #213C5F;
     color: white;
 }
 
 .sps--blw{
-    background-color: black;
+    background-color: #213C5F;
     color: #000;
+    
+}
+.boton-ingresar-naranjo{
+    background-color: rgb(245, 115, 61);
+    color: white;
+    font-weight: bold;
+}
+.boton-ingresar-naranjo:hover{
+    background-color: #089ec1;
+    
+}
+.letras-menu{
+    font-weight: bold;
+    color: white;
 }
 
 nav.sps--blw .logotipo{
     width: 50px;
 }
-
+.sobre-menu{
+    background-color: #dc3545;
+    width: 100%;
+}
 .logotipo-redes-sociales{
     width: 30px;
     height: 30px;
+    padding: 10px 0 0 0;
 }
 .banner-video{
     background-image: url(../img/senda.png);
@@ -65,6 +92,7 @@ nav.sps--blw .logotipo{
     background-image: url(../img/slider-interior.jpg);
     background-position: center;
     background-size: cover;
+    margin-top: 87px;
 }
 .texto-somos{
     color:black;
@@ -84,6 +112,7 @@ nav.sps--blw .logotipo{
     border: solid 2px;
     border-radius: 20px;
 }
+
 /* PAGINA INGRESAR */
 
 .body{
@@ -163,20 +192,20 @@ nav.sps--blw .logotipo{
 /* FOOTER */
 
 footer{
-    background-color: black;
+    background-color: rgb(245, 115, 61);
     padding: 100px 0 15px;
     text-align: center;
     color: white;
 }
 
 footer .logotipo-footer{
-    width: 230px;
-    height: 230px;
+    width: 322px;
+    
     margin-bottom: 20px;
 }
 .logotipo-ambiente{
-    width: 230px;
-    height: 230px;
+    width: 204px;
+    
 }
 
 footer p{
@@ -227,7 +256,36 @@ footer h3{
 
 .altura-img{
     height: 400px;
+    
 }
 a:hover {
     text-decoration: none;
+}
+
+div.btn-group{
+    margin: 20px 0;
+}
+
+
+div.btn-group > button.btn-danger2 {
+    color: rgb(229, 232, 236);
+    background-color: #2d73db !important;
+    
+    border-color: #3b89c9;
+    border: solid 2px;
+    border-radius: 50px;
+    padding-bottom: 10px;
+}
+.imagen-movil{
+    border-radius: 24px
+}
+div.btn-group > button.btn-danger3 {
+    color: rgb(229, 232, 236);
+    background-color: #2d73db !important;
+    height: 45px;
+    border-color: #3b89c9;
+    border: solid 2px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    margin-left: 90px;
 }

@@ -122,10 +122,27 @@ if(!empty($_POST))
     <input class="controls" type="number"   name="telefono"          id=""   placeholder="Ingrese Telefono">
     <input class="controls" type="password" name="pass"              id=""   placeholder="Ingrese su Contraseña">
     <input class="controls" type="password" name="rpass"             id=""   placeholder="Ingrese Nuevamente su Contraseña">
+    
+    <div class="btn-group">
+  <button type="button" class="btn btn-danger3  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Seleccione su Rol
+  </button>
+  
+  <div class="dropdown-menu" name="rol">
+    
+    <a class="dropdown-item visible" href="#" value="2">Organización</a>
+    
+    
+    
+  </div>
+</div>
+
+    <!--
     <label for="rol">Escoja un Rol:</label>
     <select name="rol"> 
     <option value="2">Organizacion</option>
       </select>
+-->
         <p>Estoy de acuerdo con 
             <a href="">Terminos y Condiciones</a> 
         </p>
