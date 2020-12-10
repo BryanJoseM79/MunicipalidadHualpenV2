@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <!-- Estilos perzonalizados-->
   <link rel="stylesheet" href="css/stylos.css">
+  <link rel="stylesheet" href="css/loggin.css">
+  <link rel="stylesheet" href="../css/footer.css">
 
   
   <title>Municipalidad de Hualpén</title>

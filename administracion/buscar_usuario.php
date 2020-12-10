@@ -38,6 +38,7 @@ if (!isset($_SESSION['roles_id']))
 </head>
 
 <body>
+
 <!-- MENU -->
 <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
@@ -52,16 +53,16 @@ if (!isset($_SESSION['roles_id']))
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active letras-menu">
-            <a class="nav-link" href="index.html">Panel de control<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link letras-menu" href="../proyectos/proyectos-totales.html">Proyectos</a>
+            <a class="nav-link letras-menu" href="somos.html">Somos</a>
           </li>
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/concejomuni.html">Entradas</a>
+            <a class="nav-link" href="concejomuni/concejomuni.html">Concejo Municipal</a>
           </li> 
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/alcaldesa.html">Usuarios</a>
+            <a class="nav-link" href="concejomuni/alcaldesa.html">Alcaldesa</a>
           </li>
           <li class="nav-item dropdown letras-menu active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -79,9 +80,11 @@ if (!isset($_SESSION['roles_id']))
           <li class="nav-item active letras-menu">
             <a class="nav-link" href="proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
-          
+          <li class="nav-item active letras-menu">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
           <li class="nav-item espacio-ingresar active " >
-            <a class="nav-link btn  boton-ingresar-naranjo "  href="login.php">Municipalidad</a>
+            <a class="nav-link btn boton-ingresar-naranjo "  href="login.php">Ingresar</a>
           </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">
@@ -99,8 +102,6 @@ if (!isset($_SESSION['roles_id']))
     </div>
 </nav>
   <!-- FINAL DEL MENU-->
-
-
 
 <header id="header">
   <div class="container">
@@ -176,16 +177,20 @@ if (!isset($_SESSION['roles_id']))
                       </div>
                     </div>
 
-     
-</div>
-
+                    
+  
+                </div>
+               
 <div class="col-md-9 buscar-a-izquierda">
 <form action="buscar_usuario.php" method="GET" class="">
-    <input type="text" name="busqueda" id="busquedda" placeholder="Buscar">
-    <input type="submit" value="Buscar" class="">
+   <input type="text" name="busqueda" id="busquedda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
+   <input type="submit" value="Buscar" class="">
 </form>
+ </div>
 
-<div class="col-md-5">
+                
+
+                <div class="col-md-9">
                   <table class="table table-hover table-dark">
                     <thead>
                       <tr>
@@ -200,9 +205,24 @@ if (!isset($_SESSION['roles_id']))
 
                       <?php
 
-                      //-------------paginador-----------
-                      //calcular cuantos registros activos tenemos en nuestra bd
-                      $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` WHERE estatus = 1");
+                      //-------------busqueda-----------
+                      //sentencia sql para buscar a traves de usuario
+                      $rol='';
+                      if($busqueda == 'administrador'){
+                          $rol = "OR roles_id LIKE '%1%'";
+                      }else if($busqueda == 'organizacion'){
+                          $rol = "OR roles_id LIKE '%2%'";
+                      }
+
+                      $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` 
+                                                                WHERE( id LIKE '%$busqueda%' OR
+                                                                 run      LIKE '%$busqueda%' OR 
+                                                                 nombre   LIKE '%$busqueda%' OR 
+                                                                 email    LIKE '%$busqueda%' OR 
+                                                                 telefono LIKE '%$busqueda%'OR 
+                                                                 fecha_reg LIKE '%$busqueda%' 
+                                                                 $rol )
+                                                                AND estatus = 1");
 
                       $result_registro = mysqli_fetch_array($sql_registro);
                       $total_registro = $result_registro['total_registro'];
@@ -219,8 +239,16 @@ if (!isset($_SESSION['roles_id']))
 
 
                        $query = mysqli_query($conexion,"SELECT u.id, u.run, u.nombre, u.email, u.telefono, u.fecha_reg, r.rol  
-                       FROM `usuario` AS u INNER JOIN roles AS r ON u.roles_id = r.id WHERE estatus = 1 
-                       ORDER BY u.id ASC LIMIT $desde,$por_pagina");
+                       FROM `usuario` AS u INNER JOIN roles AS r ON u.roles_id = r.id
+                         WHERE ( u.id LIKE '%$busqueda%' OR
+                                u.run      LIKE '%$busqueda%' OR 
+                                u.nombre   LIKE '%$busqueda%' OR 
+                                u.email    LIKE '%$busqueda%' OR 
+                                u.telefono LIKE '%$busqueda%'OR 
+                                u.fecha_reg LIKE '%$busqueda%'OR 
+                                r.rol LIKE '%$busqueda%' )
+                         AND
+                         estatus = 1 ORDER BY u.id ASC LIMIT $desde,$por_pagina");
                       
                       $result = mysqli_num_rows($query);
                       if($result > 0){
@@ -298,19 +326,13 @@ if (!isset($_SESSION['roles_id']))
           </div>
         </div>
       </div>
-</div> 
-                </div>
-  
-   
-
     </section>
 
 
 
 
 
-  
-  <!-- INICIO FOOTER -->
+   <!-- INICIO FOOTER -->
 <footer>
   <div class="container">
   <div class="row justify-content-center">
@@ -356,6 +378,7 @@ if (!isset($_SESSION['roles_id']))
 
 </div>
 <!-- FIN DEL FOOTER -->
+
 
 </body>
 

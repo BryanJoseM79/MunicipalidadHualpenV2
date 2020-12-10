@@ -101,3 +101,10 @@ justify-content: flex-end;
     border: 1px solid #ff501b;
 
 }
+
+.altura-footer-admin{
+    margin-top: 200px;
+}
+.buscar-a-izquierda{
+    padding-right: 200px;
+}

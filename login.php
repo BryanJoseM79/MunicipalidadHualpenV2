@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
 $email = $_POST['email'];
 $password = $_POST['pass'];
 $pass = md5($password);
-$rol_id = $_POST["rol_id"];
+$roles_id = $_POST["roles_id"];
 //verificamos que usuario y pass sean el mismo
 $consulta1 = "SELECT*FROM usuario 
                     WHERE email='$email' AND pass = '$pass'";
@@ -18,7 +18,7 @@ $resultado1=mysqli_query($conexion,$consulta1);
 $valor1 = mysqli_fetch_array($resultado1);
 
 //ahora con esta consulta valido si usuario está en el domino del rol_id
-$consulta2 = "SELECT*FROM usuario WHERE email='$email' AND roles_id='$rol_id'";
+$consulta2 = "SELECT*FROM usuario WHERE email='$email' AND roles_id='$roles_id'";
 
 $resultado2=mysqli_query($conexion,$consulta2);
 $valor2 = mysqli_fetch_array($resultado2);
@@ -32,9 +32,7 @@ if($valor2['roles_id']==2){
 }
 else{
 ?>
-<script>
-  alert("Hola que tal");
-</script>
+
 
 
 
@@ -91,20 +89,23 @@ mysqli_close($conexion);
 
             <div>
             
-              <!-- DROOPDOWN -->
+     
+            <!-- DROOPDOWN -->
+             
 <div class="btn-group">
+  <!--
   <button type="button" class="btn btn-danger2  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Seleccione su Rol
   </button>
-  
+ 
   <div class="dropdown-menu" name="rol_id">
     <a class="dropdown-item" href="#" value="1">Administrador</a>
     <a class="dropdown-item" href="#" value="2">Organización</a>
   </div>
-  
-</div>    <!--
+-->
+</div>    
             <label> Seleccione su rol</label>
-            <select name="rol_id" >
+            <select name="roles_id" >
           <option value="1">Administrador</option> 
           <option value="2">Organizacion</option>
           </select>
