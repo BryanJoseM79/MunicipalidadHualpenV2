@@ -1,0 +1,19 @@
+
+.modal-content{
+    background-color: #3b4652;
+    opacity: .85;
+    padding: 49px 20px;
+    box-shadow: 0px 0px 3px #848484;
+}
+div.btn-group > button.btn-danger2 {
+    color: rgb(229, 232, 236);
+    background-color: #2d73db !important;
+    border-color: #3b89c9;
+    border: solid 1px;
+    border-radius: 13px;
+    padding-bottom: 10px;
+}
+.recordarpass:hover {
+    text-decoration: none;
+    
+}

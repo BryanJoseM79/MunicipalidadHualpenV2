@@ -1,0 +1,42 @@
+/* FOOTER */
+
+footer{
+    background-color: rgb(245, 115, 61);
+    padding-top: 60px;
+    text-align: center;
+    color: white;
+}
+footer .logotipo-footer{
+    width: 322px;
+    
+    margin-bottom: 20px;
+}
+.logotipo-ambiente{
+    width: 204px;
+    
+}
+footer p{
+    color: ivory;
+}
+footer h3{
+    color: white;
+}
+.logotipo-redes-sociales-footer{
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;   
+}
+.altura-footer{
+    padding: 20px 0;
+    margin-bottom: 0px;
+}
+footer.page-footer .footer-copyright {
+    
+    color: rgba(255,255,255,0.6);
+    background-color: rgba(0,0,0,0.2);
+    
+}
+.fondo-coppy{
+    background-color: #089ec1;
+}
+/* FINAL FOOTER */

@@ -67,6 +67,8 @@ mysqli_close($conexion);
   <link rel="stylesheet" href="css/bootstrap.css">
   <!-- Estilos perzonalizados-->
   <link rel="stylesheet" href="css/stylos.css">
+  <link rel="stylesheet" href="css/loggin.css">
+  
 
   
   <title>Municipalidad de Hualpén</title>
@@ -76,9 +78,7 @@ mysqli_close($conexion);
 <div class="modal-dialog text-center"> 
     <div class="col-12 main-section">
         <div class="modal-content">
-          <div class="col-12 user-img">
-            <img class="img-fluid" src="img/unnamed (1).png" alt="">
-          </div>
+         
 
           <form class="col-12" action=""  method="POST" >
             <div class="form-group" id="user-group">
@@ -120,7 +120,7 @@ mysqli_close($conexion);
           </form>
           <div class="col-12 forgot">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <a href="">¿Recordar Contraseña?</a>
+            <a href="" class="recordarpass">¿Recordar Contraseña?</a>
           </div>
 
         </div>

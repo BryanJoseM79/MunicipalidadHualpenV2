@@ -1,11 +1,19 @@
-/* Etiquetas globales */
+/***** Etiquetas globales *******/
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h1,h2,h3,h4,h5{
     font-weight: bold;
 }
-/* ____________________*/
+/********************************/
+
+
+/* PARA SACARLE LINEA AZUL DETRAS DE TODOS LOS a (href)*/
+
+a:hover{
+    text-decoration: none;
+}
+/********************************************************/
 
 
 /* Clases de utilidad */
@@ -19,12 +27,10 @@ h1,h2,h3,h4,h5{
 }
 
 .altura5{
-    padding: 100px 0;
+    padding: 46px 0;
     margin-top: 300px;
 }
-.altura-footer{
-    padding: 20px 0;
-}
+
 
 
 .logotipo{
@@ -105,13 +111,8 @@ nav.sps--blw .logotipo{
     padding: 280px 0;
     text-align: center;
 }
-.btn-danger {
-    color: #fff;
-    background-color: #b88085;
-    border-color: #dc3545;
-    border: solid 2px;
-    border-radius: 20px;
-}
+
+
 
 /* PAGINA INGRESAR */
 
@@ -139,12 +140,7 @@ nav.sps--blw .logotipo{
     margin-top: 25%;
     padding: 0;
 }
-.modal-content{
-    background-color: #3b4652;
-    opacity: .85;
-    padding: 0 20px;
-    box-shadow: 0px 0px 3px #848484;
-}
+
 .form-group input{
     height: 42px;
     font-size: 18px;
@@ -189,38 +185,7 @@ nav.sps--blw .logotipo{
 
 /* FIN proyectos globales */
 
-/* FOOTER */
 
-footer{
-    background-color: rgb(245, 115, 61);
-    padding: 100px 0 15px;
-    text-align: center;
-    color: white;
-}
-
-footer .logotipo-footer{
-    width: 322px;
-    
-    margin-bottom: 20px;
-}
-.logotipo-ambiente{
-    width: 204px;
-    
-}
-
-footer p{
-    color: ivory;
-}
-footer h3{
-    color: white;
-}
-.logotipo-redes-sociales-footer{
-    width: 30px;
-    height: 30px;
-    margin-top: 15px;   
-}
-
-/* FINAL FOOTER */
 
 
 
@@ -258,24 +223,12 @@ footer h3{
     height: 400px;
     
 }
-a:hover {
-    text-decoration: none;
-}
+
 
 div.btn-group{
     margin: 20px 0;
 }
 
-
-div.btn-group > button.btn-danger2 {
-    color: rgb(229, 232, 236);
-    background-color: #2d73db !important;
-    
-    border-color: #3b89c9;
-    border: solid 2px;
-    border-radius: 50px;
-    padding-bottom: 10px;
-}
 .imagen-movil{
     border-radius: 24px
 }
