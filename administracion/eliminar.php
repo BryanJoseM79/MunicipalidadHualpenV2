@@ -1,43 +1,76 @@
 <?php
+include "../registro/connect_db.php";
 
-include("../registro/connect_db.php");
+if(!empty($_POST)){
+    if($_POST['idusuario'] ==1){
+        header("location: admin.php");
+        exit;
+    }
+    $idusuario= $_POST['idusuario'];
 
-/*session_start();
+    //$query_delete = mysqli_query($conexion,"DELETE FROM usuario WHERE id = $idusuario");
+     $query_delete = mysqli_query($conexion,"UPDATE usuario SET estatus = 0 WHERE id = $idusuario");
+    //evaluamos si el query se ejecuta
+    if($query_delete){
+        header("location: admin.php");
+    }else{
+        echo "Error al eliminar";
+    }
+}
 
-//Si la variable sesión está vacía
-if (!isset($_SESSION['roles_id'])) 
-{
-   // nos envía a la siguiente dirección en el caso de no poseer autorización 
-   header("location:../index.html"); 
-}*/
+
+//si la variable id no existe o si es el id 1 del administrador
+if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
+    header("location: admin.php");
+}else{
+    include "../registro/connect_db.php";
+    $idusuario = $_REQUEST['id'];
+    $query = mysqli_query($conexion,"SELECT u.run, u.nombre, u.email, r.rol
+                                        FROM usuario u
+                                        INNER JOIN roles r 
+                                        ON u.roles_id = r.id
+                                        WHERE u.id = $idusuario");
+
+    $result = mysqli_num_rows($query);
+
+    if($result > 0){
+
+        while ($data = mysqli_fetch_array($query)){
+            $run = $data['run'];
+            $nombre = $data['nombre'];
+            $email = $data['email'];
+            $rol = $data['rol'];
+        }
+    }else{
+        header("location: admin.php");
+    }
+
+
+
+}
+
 
 ?>
 
 
-<!doctype html>
 
+
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <!-- Estilos perzonalizados-->
-  <link rel="stylesheet" href="../css/stylos.css">
-  <link rel="stylesheet" href="../css/stylo_admin.css">
-  <link rel="stylesheet" href="../css/administracion2.css">
-  
-
-  
-  <title>Municipalidad de Hualpén</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- Estilos perzonalizados-->
+    <link rel="stylesheet" href="../css/stylos.css">
+    <link rel="stylesheet" href="../css/stylo_admin.css">
+    <link rel="stylesheet" href="../css/administracion2.css">
+    
+    <title>Municipalidad de Hualpén</title>
 </head>
-
 <body>
-
-<!-- MENU  -->
+    <!-- MENU -->
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
       <a class="navbar-brand" href="../index.html">
@@ -51,26 +84,31 @@ if (!isset($_SESSION['roles_id']))
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html"> Panel de Control <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
           </li>
-          <!--<li class="nav-item espacio-ingresar"> BOTON PARA SALIR
-            <a class="nav-link btn btn-dark "  href="../registro/salir.php">Salir</a>-->
           <li class="nav-item">
-            <a class="nav-link" href="../index.html">Proyectos</a>
+            <a class="nav-link" href="../somos.html">Somos</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button">
-              Entradas
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Servicios
             </a>
-            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">SOLCITUD DE VIVIENDA</a>
+              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
+              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
+            </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Usuarios</a>
+            <a class="nav-link" href="#">Sucursales</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
           <li class="nav-item espacio-ingresar">
-            <a class="nav-link btn btn-dark "  href="../index.html">Municipalidad</a>
+            <a class="nav-link btn btn-dark "  href="../index.html">Ingresar</a>
           </li>
           <li>
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >
@@ -84,7 +122,7 @@ if (!isset($_SESSION['roles_id']))
   </nav>
   <!-- FINAL DEL MENU-->
 
-<header id="header">
+  <header id="header">
   <div class="container">
       <div class="row">
         <div class="col-md-10">
@@ -103,9 +141,9 @@ if (!isset($_SESSION['roles_id']))
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Proyecto</a>
-              <a class="dropdown-item" href="#"></a>
-              <a class="dropdown-item" href="admin1.php">Agregar Usuario</a>
+              <a class="dropdown-item" href="#">Agregar Pagina</a>
+              <a class="dropdown-item" href="#">Agregar Entrada</a>
+              <a class="dropdown-item" href="#">Agregar Usuario</a>
             </div>
           </div>
         </div>
@@ -158,117 +196,30 @@ if (!isset($_SESSION['roles_id']))
                       </div>
                     </div>
                 </div>
-
                 <div class="col-md-9">
-                  <table class="table table-hover table-dark">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">fecha_reg</th>
-                        <th scope="col">Rol</th>
-                        
-                      </tr>
+                <section class="">
+                    <div class= "">
+                        <h2>¿Está seguro de eliminar el siguiente registro?</h2>
+                        <p> RUT: <span> <?php echo $run; ?></span></p>
+                        <p> Nombre: <span> <?php echo $nombre; ?></span></p>
+                        <p> Correo: <span> <?php echo $email; ?></span></p>
+                        <p> Tipo de Usuario: <span> <?php echo $rol; ?></span></p>
 
-                      <?php
-
-                      //-------------paginador-----------
-                      //calcular cuantos registros activos tenemos en nuestra bd
-                      $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` WHERE estatus = 1");
-
-                      $result_registro = mysqli_fetch_array($sql_registro);
-                      $total_registro = $result_registro['total_registro'];
-
-                      $por_pagina = 5;
-
-                      if(empty($_GET['pagina'])){
-                        $pagina = 1;
-                      }else{
-                        $pagina = $_GET['pagina'];
-                      }
-                      $desde = ($pagina-1) * $por_pagina;
-                      $total_paginas = ceil($total_registro / $por_pagina);
+                        <form method="POST" action=""> 
+                            <input type="hidden" name="idusuario" value="<?php echo $idusuario; ?>">
+                            <a href = "admin.php"> Cancelar</a>
+                            <input type="submit" value="aceptar" >               
+                        </form>
 
 
-                       $query = mysqli_query($conexion,"SELECT u.id, u.nombre, u.email, u.telefono, u.fecha_reg, r.rol  
-                       FROM `usuario` AS u INNER JOIN roles AS r ON u.roles_id = r.id WHERE estatus = 1 
-                       ORDER BY u.id ASC LIMIT $desde,$por_pagina");
-                      
-                      $result = mysqli_num_rows($query);
-                      if($result > 0){
-
-                        while ($data = mysqli_fetch_array($query)){
-
-
-                       ?>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><?php echo $data["id"]; ?></th>
-                        <td><?php echo $data["nombre"];?></td>
-                        <td><?php echo $data["email"]; ?></td>
-                        <td><?php echo $data["telefono"]; ?></td>
-                        <td><?php echo $data["fecha_reg"]; ?></td>
-                        <td><?php echo $data['rol']; ?></td>
-                        <td>
-                          <a class ="editar" href ="editar.php?id=<?php echo $data["id"];?>"> Editar </a>
-
-                          <?php
-                          //no eliminar al admin supremo
-                          // si el id es diferente a 1 nos mostrara la opcion de eliminar
-                          if($data["id"] != 5){  ?>
-                          <a class ="" href ="eliminar.php?id=<?php echo $data["id"];?>"> eliminar </a>
-
-                          <?php } ?>
-
-                        </td>   
-                    </tr>
-
-                  <?php
-                  }
-                }
-                ?>
-                    </tbody>
-                  </table>
-                  <div class="paginador"> 
-                  <ul>
-                    <li><a href="?pagina=<?php echo 1; ?>">│<</a></li>
-                    <li><a href="?pagina=<?php echo $pagina-1; ?>"><<</a></li>
-                    
-                  <?php
-                    for ($i=1; $i <= $total_paginas; $i++){
-
-                      if($i == $pagina){
-                        echo '<li class="pageSelected">'.$i.'</li>';
-                      }else{
-                        echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
-                      }
-
-                      
-                    }
-                  ?>
+                    </div>
                   
-                    <li><a href="?pagina=<?php echo $pagina + 1; ?>">>></a></li>
-                    <li><a href="?pagina=<?php echo $total_paginas;?>">>│</a></li>
-
-                  </ul>
-                  </div>
-                      </div>
-                  </div>
-                </div>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
-
-
-
-  <footer class="footersep">
+</div>
+                
+</section>
+<footer class="footersep">
 
     <img class="logotipo-footer" src="../img/unnamed (1).png" alt=""> <br>
     <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook">
@@ -279,7 +230,6 @@ if (!isset($_SESSION['roles_id']))
 
     </p>
   </footer>
-
 </body>
 
 
@@ -296,11 +246,7 @@ if (!isset($_SESSION['roles_id']))
   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="../js/bootstrap.js"></script>
 
-
 <!-- menu -->
 <script src="../js/scrollPosStyler.min.js"></script>
-
-
 </body>
-
 </html>
