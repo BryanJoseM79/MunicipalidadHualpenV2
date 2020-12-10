@@ -182,7 +182,9 @@ if (!isset($_SESSION['roles_id']))
                 </div>
                 <?php
                  //-------------busqueda-----------
+                 //hacer busqueda con letras en minusculas
                  $busqueda = strtolower($_REQUEST['busqueda']);
+                 //si no existe busqueda volver a admin.php
                  if(empty($busqueda)){
                    header("location: admin.php");
                    mysqli_close($conexion);
@@ -213,21 +215,9 @@ if (!isset($_SESSION['roles_id']))
                         
                         
                       </tr>
-
                       <?php
-
-<<<<<<< HEAD
-                     
-=======
-                      //-------------busqueda-----------
-                      $busqueda = strtolower($_REQUEST['busqueda']);
-                      if(empty($busqueda)){
-                        header("location: admin.php");
-                        mysqli_close($conexion);
-                      }
->>>>>>> dfa911441dbab27026e7730dc1e5518e3688be9c
-                      //sentencia sql para buscar a traves de usuario
-
+                      
+                      //sentencua para ver cual es el rol que se busca
                       $busqueda=$_GET['busqueda'];
                       $rol='';
                       if($busqueda == 'administrador'){
@@ -235,9 +225,7 @@ if (!isset($_SESSION['roles_id']))
                       }else if($busqueda == 'organizacion'){
                           $rol = "OR roles_id LIKE '%2%'";
                       }
-                      
-                      
-
+                      //sentencia sql para buscar a traves de usuario
                       $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` 
                                                                 WHERE( id LIKE '%$busqueda%' OR
                                                                  run      LIKE '%$busqueda%' OR 
