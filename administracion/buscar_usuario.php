@@ -158,9 +158,18 @@ if (!isset($_SESSION['roles_id']))
                       </div>
                     </div>
                 </div>
+                <?php
+                // dejamos la busqueda en minusculas con strtolower
+                 $busqueda = strtolower($_REQUEST['busqueda']);
+                 //si no existe busqueda
+                 if(empty($busqueda)){
+                     header("location: admin.php");
+                 }
+                
+                ?>
 
                 <form action="buscar_usuario.php" method="GET" class="">
-                    <input type="text" name="busqueda" id="busquedda" placeholder="Buscar">
+                    <input type="text" name="busqueda" id="busquedda" placeholder="Buscar" value="<?php echo $busqueda; ?>">
                     <input type="submit" value="Buscar" class="">
                 </form>
 
@@ -179,9 +188,24 @@ if (!isset($_SESSION['roles_id']))
 
                       <?php
 
-                      //-------------paginador-----------
-                      //calcular cuantos registros activos tenemos en nuestra bd
-                      $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` WHERE estatus = 1");
+                      //-------------busqueda-----------
+                      //sentencia sql para buscar a traves de usuario
+                      $rol='';
+                      if($busqueda == 'administrador'){
+                          $rol = "OR roles_id LIKE '%1%'";
+                      }else if($busqueda == 'organizacion'){
+                          $rol = "OR roles_id LIKE '%2%'";
+                      }
+
+                      $sql_registro = mysqli_query($conexion,"SELECT COUNT(*) AS total_registro FROM `usuario` 
+                                                                WHERE( id LIKE '%$busqueda%' OR
+                                                                 run      LIKE '%$busqueda%' OR 
+                                                                 nombre   LIKE '%$busqueda%' OR 
+                                                                 email    LIKE '%$busqueda%' OR 
+                                                                 telefono LIKE '%$busqueda%'OR 
+                                                                 fecha_reg LIKE '%$busqueda%' 
+                                                                 $rol )
+                                                                AND estatus = 1");
 
                       $result_registro = mysqli_fetch_array($sql_registro);
                       $total_registro = $result_registro['total_registro'];
@@ -198,8 +222,16 @@ if (!isset($_SESSION['roles_id']))
 
 
                        $query = mysqli_query($conexion,"SELECT u.id, u.run, u.nombre, u.email, u.telefono, u.fecha_reg, r.rol  
-                       FROM `usuario` AS u INNER JOIN roles AS r ON u.roles_id = r.id WHERE estatus = 1 
-                       ORDER BY u.id ASC LIMIT $desde,$por_pagina");
+                       FROM `usuario` AS u INNER JOIN roles AS r ON u.roles_id = r.id
+                         WHERE ( u.id LIKE '%$busqueda%' OR
+                                u.run      LIKE '%$busqueda%' OR 
+                                u.nombre   LIKE '%$busqueda%' OR 
+                                u.email    LIKE '%$busqueda%' OR 
+                                u.telefono LIKE '%$busqueda%'OR 
+                                u.fecha_reg LIKE '%$busqueda%'OR 
+                                r.rol LIKE '%$busqueda%' )
+                         AND
+                         estatus = 1 ORDER BY u.id ASC LIMIT $desde,$por_pagina");
                       
                       $result = mysqli_num_rows($query);
                       if($result > 0){

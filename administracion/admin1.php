@@ -11,7 +11,7 @@ if(!empty($_POST))
 	}else{
 
     include "../registro/connect_db.php";
-
+  $run = $_POST['run'];
 	$nombre = $_POST['nombre'];
 	$email = $_POST['email'];
 	$telefono = $_POST['telefono'];
@@ -20,7 +20,7 @@ if(!empty($_POST))
 	$rol = $_POST['rol'];
 	//verificar que el email no este duplicado
 		
-	$query = mysqli_query($conexion, "SELECT * FROM usuario WHERE email = '$email'");
+	$query = mysqli_query($conexion, "SELECT * FROM usuario WHERE email = '$email' AND run = '$run'");
 	$result = mysqli_fetch_array($query);
 
 	if ($result > 0){
@@ -28,7 +28,7 @@ if(!empty($_POST))
 	}else{
 
 	//consulta para insertar
-	$query_insert = mysqli_query($conexion, "INSERT INTO usuario(nombre, email, telefono, pass, fecha_reg, roles_id)
+	$query_insert = mysqli_query($conexion, "INSERT INTO usuario(run, nombre, email, telefono, pass, fecha_reg, roles_id)
 				VALUES ('$nombre','$email','$telefono','$pass','$fecha_reg','$rol')");
 	//ejecutar consulta
 	
@@ -197,6 +197,8 @@ if(!empty($_POST))
                     <section class="formulario-admininis">
                     <div><?php echo isset($alert)? $alert : ''; ?></div>
                     <form action="" method="POST">
+                            <label class="">Ingrese RUT:</label>
+                            <input class="controls" type="run"   name="run"                  id=""   placeholder="Ingrese su RUT">
                             <label class="">Ingrese nombre:</label>
                             <input class="controls" type="nombre"   name="nombre"            id=""   placeholder="Ingrese su Nombre">
                             <label class="">Ingrese Correo:</label>
