@@ -128,16 +128,16 @@ if($result_sql == 0){
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active letras-menu">
-            <a class="nav-link" href="index.html">Panel de control<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="admin.php">Panel de control<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link letras-menu" href="../proyectos/proyectos-totales.html">Proyectos</a>
           </li>
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/concejomuni.html">Entradas</a>
+            <a class="nav-link" href="../concejomuni/concejomuni.html">Entradas</a>
           </li> 
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/alcaldesa.html">Usuarios</a>
+            <a class="nav-link" href="../concejomuni/alcaldesa.html">Usuarios</a>
           </li>
           <li class="nav-item dropdown letras-menu active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -145,10 +145,10 @@ if($result_sql == 0){
               Proyectos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="proyectos/proyecto1.html">Brisas de labranza - II</a>
-              <a class="dropdown-item" href="proyectos/proyecto2.html">Construcción de Nichos</a>
-              <a class="dropdown-item" href="proyectos/proyecto3.html">Beca alimentación</a>
-              <a class="dropdown-item" href="proyectos/proyecto4.html">Beneficio Tablet</a>
+              <a class="dropdown-item" href="../proyectos/proyecto1.html">Brisas de labranza - II</a>
+              <a class="dropdown-item" href="../proyectos/proyecto2.html">Construcción de Nichos</a>
+              <a class="dropdown-item" href="../proyectos/proyecto3.html">Beca alimentación</a>
+              <a class="dropdown-item" href="../proyectos/proyecto4.html">Beneficio Tablet</a>
             </div>
           </li>
 
@@ -157,7 +157,7 @@ if($result_sql == 0){
           </li>
           
           <li class="nav-item espacio-ingresar active " >
-            <a class="nav-link btn  boton-ingresar-naranjo "  href="login.php">Municipalidad</a>
+            <a class="nav-link btn  boton-ingresar-naranjo "  href="../index.html">Municipalidad</a>
           </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">
@@ -195,9 +195,9 @@ if($result_sql == 0){
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Pagina</a>
-              <a class="dropdown-item" href="#">Agregar Entrada</a>
-              <a class="dropdown-item" href="#">Agregar Usuario</a>
+              <a class="dropdown-item" href="admin.3.html">Agregar Proyecto</a>
+              <a class="dropdown-item" href="admin1.php">Agregar Usuario</a>
+              <a class="dropdown-item" href="admin.php">Usuarios</a>
             </div>
           </div>
         </div>
@@ -262,8 +262,8 @@ if($result_sql == 0){
 
   <form action="" method="POST">
     <input type="hidden" name="id" value="<?php echo $iduser; ?>"> 
-    <p for="run" class="p-editar">RUT: </p>
-    <input class="input-editar" type="run"      name="run"               id=""   placeholder="Ingrese RUT representante" value="<?php echo $run;?>">
+    <p for="run" class="p-editar">RUT (12345678-9): </p>
+    <input class="input-editar" type="run"      name="run"               id=""   placeholder="Ingrese RUT representante 12345678-9:" value="<?php echo $run;?>">
     <p for="nombre" class="p-editar"> Nombre: </p>
     <input class="input-editar" type="nombre"   name="nombre"            id=""   placeholder="Ingrese Nombre" value="<?php echo $nombre;?>">
     <p for="email" class="p-editar"> Email:

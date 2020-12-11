@@ -72,51 +72,66 @@ if(!empty($_POST))
 
 <body>
 
-<!-- MENU  -->
-  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
+<!-- MENU -->
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
       <a class="navbar-brand" href="../index.html">
-        <img class="logotipo" src="../img/unnamed (1).png" alt="logo-municipalidad">
+        <img class="logotipo" src="../img/DDDDDASD.png" alt="logo-municipalidad">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item active letras-menu">
+            <a class="nav-link" href="admin.php">Panel de control<span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html"> Panel de Control <span class="sr-only">(current)</span></a>
+            <a class="nav-link letras-menu" href="../proyectos/proyectos-totales.html">Proyectos</a>
           </li>
-          <!--<li class="nav-item espacio-ingresar"> BOTON PARA SALIR
-            <a class="nav-link btn btn-dark "  href="../registro/salir.php">Salir</a>-->
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Paginas</a>
+          <li class="nav-item letras-menu active">
+            <a class="nav-link" href="../concejomuni/concejomuni.html">Entradas</a>
+          </li> 
+          <li class="nav-item letras-menu active">
+            <a class="nav-link" href="../concejomuni/alcaldesa.html">Usuarios</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button">
-              Entradas
+          <li class="nav-item dropdown letras-menu active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Proyectos
             </a>
-            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="../proyectos/proyecto1.html">Brisas de labranza - II</a>
+              <a class="dropdown-item" href="../proyectos/proyecto2.html">Construcción de Nichos</a>
+              <a class="dropdown-item" href="../proyectos/proyecto3.html">Beca alimentación</a>
+              <a class="dropdown-item" href="../proyectos/proyecto4.html">Beneficio Tablet</a>
+            </div>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Usuarios</a>
+          <li class="nav-item active letras-menu">
+            <a class="nav-link" href="../proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
           
-          <li class="nav-item espacio-ingresar">
-            <a class="nav-link btn btn-dark "  href="../index.html">Municipalidad</a>
+          <li class="nav-item espacio-ingresar active " >
+            <a class="nav-link btn  boton-ingresar-naranjo "  href="../index.html">Municipalidad</a>
           </li>
           <li>
+            <a href="https://www.facebook.com/Munihualpen" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >
+          </a>
+          <a href="https://www.instagram.com/explore/locations/1871656843054017/municipalidad-de-hualpen/" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/instagram-logo.svg" alt="Instagram">
+          </a>
+          <a href="https://twitter.com/hualpenciudad" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/twitter-logo-button.svg" alt="Twitter">
+          </a>
           </li>
         </ul>
       </div>
     </div>
-    
-  </nav>
+</nav>
   <!-- FINAL DEL MENU-->
 
 <header id="header">
@@ -138,9 +153,8 @@ if(!empty($_POST))
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Pagina</a>
-              <a class="dropdown-item" href="#">Agregar Entrada</a>
-              <a class="dropdown-item" href="#">Agregar Usuario</a>
+              <a class="dropdown-item" href="admin.3.html">Agregar Proyecto</a>
+              <a class="dropdown-item" href="admin.php"> Usuarios</a>
             </div>
           </div>
         </div>
@@ -198,9 +212,9 @@ if(!empty($_POST))
                     <section class="formulario-admininis2">
                     <div><?php echo isset($alert)? $alert : ''; ?></div>
                     <form action="" method="POST">
-                            <label class="">Ingrese RUT:</label>
-                            <input class="input-editar" type="run"   name="run"                  id=""   placeholder="Ingrese su RUT">
-                            <label class="">Ingrese nombre:</label>
+                            <label class="">Ingrese RUT (12345678-9):</label>
+                            <input class="input-editar" type="run"   name="run"                  id=""   placeholder="Ingrese su RUT:12345678-9">
+                            <label class="">Ingrese Nombre:</label>
                             <input class="input-editar" type="nombre"   name="nombre"            id=""   placeholder="Ingrese su Nombre">
                             <label class="">Ingrese Correo:</label>
                             <input class="input-editar" type="email"    name="email"             id=""   placeholder="Ingrese su Correo">

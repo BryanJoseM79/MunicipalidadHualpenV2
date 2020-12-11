@@ -66,7 +66,7 @@ if(!empty($_POST))
 
 <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="../index.html">
         <img class="logotipo" src="../img/DDDDDASD.png" alt="logo-municipalidad">
       </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -81,13 +81,13 @@ if(!empty($_POST))
           </li>
          
           <li class="nav-item active">
-            <a class="nav-link letras-menu" href="somos.html">Somos</a>
+            <a class="nav-link letras-menu" href="../somos.html">Somos</a>
           </li>
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/concejomuni.html">Concejo Municipal</a>
+            <a class="nav-link" href="../concejomuni/concejomuni.html">Concejo Municipal</a>
           </li> 
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/alcaldesa.html">Alcaldesa</a>
+            <a class="nav-link" href="../concejomuni/alcaldesa.html">Alcaldesa</a>
           </li>
           <li class="nav-item dropdown letras-menu active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -95,15 +95,15 @@ if(!empty($_POST))
               Proyectos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="proyectos/proyecto1.html">Brisas de labranza - II</a>
-              <a class="dropdown-item" href="proyectos/proyecto2.html">Construcción de Nichos</a>
-              <a class="dropdown-item" href="proyectos/proyecto3.html">Beca alimentación</a>
-              <a class="dropdown-item" href="proyectos/proyecto4.html">Beneficio Tablet</a>
+              <a class="dropdown-item" href="../proyectos/proyecto1.html">Brisas de labranza - II</a>
+              <a class="dropdown-item" href="../proyectos/proyecto2.html">Construcción de Nichos</a>
+              <a class="dropdown-item" href="../proyectos/proyecto3.html">Beca alimentación</a>
+              <a class="dropdown-item" href="../proyectos/proyecto4.html">Beneficio Tablet</a>
             </div>
           </li>
 
           <li class="nav-item active letras-menu">
-            <a class="nav-link" href="proyectos/proyectos-totales.html">Proyectos Totales</a>
+            <a class="nav-link" href="../proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
           <li class="nav-item active letras-menu">
             <a class="nav-link" href="indexlogeado.php">Enviar postulación</a>

@@ -56,13 +56,13 @@ if (!isset($_SESSION['roles_id']))
             <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link letras-menu" href="somos.html">Somos</a>
+            <a class="nav-link letras-menu" href="../somos.html">Somos</a>
           </li>
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/concejomuni.html">Concejo Municipal</a>
+            <a class="nav-link" href="../concejomuni/concejomuni.html">Concejo Municipal</a>
           </li> 
           <li class="nav-item letras-menu active">
-            <a class="nav-link" href="concejomuni/alcaldesa.html">Alcaldesa</a>
+            <a class="nav-link" href="../concejomuni/alcaldesa.html">Alcaldesa</a>
           </li>
           <li class="nav-item dropdown letras-menu active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -70,21 +70,21 @@ if (!isset($_SESSION['roles_id']))
               Proyectos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="proyectos/proyecto1.html">Brisas de labranza - II</a>
-              <a class="dropdown-item" href="proyectos/proyecto2.html">Construcción de Nichos</a>
-              <a class="dropdown-item" href="proyectos/proyecto3.html">Beca alimentación</a>
-              <a class="dropdown-item" href="proyectos/proyecto4.html">Beneficio Tablet</a>
+              <a class="dropdown-item" href="../proyectos/proyecto1.html">Brisas de labranza - II</a>
+              <a class="dropdown-item" href="../proyectos/proyecto2.html">Construcción de Nichos</a>
+              <a class="dropdown-item" href="../proyectos/proyecto3.html">Beca alimentación</a>
+              <a class="dropdown-item" href="../proyectos/proyecto4.html">Beneficio Tablet</a>
             </div>
           </li>
 
           <li class="nav-item active letras-menu">
-            <a class="nav-link" href="proyectos/proyectos-totales.html">Proyectos Totales</a>
+            <a class="nav-link" href="../proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
           <li class="nav-item active letras-menu">
             <a class="nav-link" href="#">Contacto</a>
           </li>
           <li class="nav-item espacio-ingresar active " >
-            <a class="nav-link btn boton-ingresar-naranjo "  href="login.php">Ingresar</a>
+            <a class="nav-link btn boton-ingresar-naranjo "  href="../login.php">Ingresar</a>
           </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">
@@ -122,8 +122,7 @@ if (!isset($_SESSION['roles_id']))
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Proyecto</a>
-              <a class="dropdown-item" href="#"></a>
+              <a class="dropdown-item" href="admin.3.html">Agregar Proyecto</a>
               <a class="dropdown-item" href="admin1.php">Agregar Usuario</a>
             </div>
           </div>

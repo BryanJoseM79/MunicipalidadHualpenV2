@@ -95,9 +95,9 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
               Servicios
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">SOLCITUD DE VIVIENDA</a>
-              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
-              <a class="dropdown-item" href="#">SOLICIUTD DE BONO</a>
+              <a class="dropdown-item" href="../proyectos/proyecto1.html">SOLCITUD DE VIVIENDA</a>
+              <a class="dropdown-item" href="../proyectos/proyecto2.html">SOLICIUTD DE BONO</a>
+              <a class="dropdown-item" href="../proyectos/proyecto3.html">SOLICIUTD DE BONO</a>
             </div>
           </li>
 
@@ -108,7 +108,7 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
             <a class="nav-link" href="#">Contacto</a>
           </li>
           <li class="nav-item espacio-ingresar">
-            <a class="nav-link btn btn-dark "  href="../index.html">Ingresar</a>
+            <a class="nav-link btn btn-dark "  href="../login.php">Ingresar</a>
           </li>
           <li>
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >
@@ -141,9 +141,9 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Pagina</a>
-              <a class="dropdown-item" href="#">Agregar Entrada</a>
-              <a class="dropdown-item" href="#">Agregar Usuario</a>
+              <a class="dropdown-item" href="admin.3.html">Agregar Proyecto</a>
+              <a class="dropdown-item" href="admin1.php">Agregar Usuario</a>
+              <a class="dropdown-item" href="admin.php"> Usuarios</a>
             </div>
           </div>
         </div>
