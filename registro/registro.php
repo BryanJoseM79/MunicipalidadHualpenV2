@@ -103,9 +103,7 @@ if(!empty($_POST))
           <li class="nav-item active letras-menu">
             <a class="nav-link" href="proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
-          <li class="nav-item active letras-menu">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
+          
           <li class="nav-item espacio-ingresar active " >
             <a class="nav-link btn boton-ingresar-naranjo "  href="login.php">Ingresar</a>
           </li>

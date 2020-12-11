@@ -121,7 +121,7 @@ if (!isset($_SESSION['roles_id']))
             </a>
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Agregar Proyecto</a>
+              <a class="dropdown-item" href="admin.3.html">Agregar Proyecto</a>
               <a class="dropdown-item" href="#"></a>
               <a class="dropdown-item" href="admin1.php">Agregar Usuario</a>
             </div>

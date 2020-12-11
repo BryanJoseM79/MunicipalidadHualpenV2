@@ -95,14 +95,17 @@ nav.sps--blw .logotipo{
 /* SOMOS */
 .cabecera-somos{
     padding: 150px 0 100px 0;
-    background-image: url(../img/trabajadores-municipales/800-trabajadores-se-benefician-por-convenio-entre-Municipalidad-de-Coronel-y-Caja-18--e1587526558438-850x400.jpg);
+    background-image: url(../img/DSC_0653-e1547642091100.jpg);
     background-position: center;
     background-size: cover;
     margin-top: 87px;
 }
-.texto-somos{
-    color:black;
-    
+.texto-somos {
+    color: black;
+    background-color: white;
+    opacity: 53%;
+    /* margin-top: 16px; */
+    /* padding-top: 58px; */
 }
 .banner-somos{
     background-image: url(../img/trabajadores-municipales/20170406_164732.jpg);
@@ -126,7 +129,7 @@ nav.sps--blw .logotipo{
     margin-bottom: 35px;
 }
 .user-img img{
-    width: 100px;
+    width: 128px;
     height: 100px;
     /* Si tiene imagen de fondo lo activo
 
