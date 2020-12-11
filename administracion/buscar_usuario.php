@@ -84,7 +84,7 @@ if (!isset($_SESSION['roles_id']))
             <a class="nav-link" href="#">Contacto</a>
           </li>
           <li class="nav-item espacio-ingresar active " >
-            <a class="nav-link btn boton-ingresar-naranjo "  href="../login.php">Ingresar</a>
+            <a class="nav-link btn boton-ingresar-naranjo "  href="../registro/salir.php">Cerrar Sesion</a>
           </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">

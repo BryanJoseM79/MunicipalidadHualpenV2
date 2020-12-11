@@ -60,6 +60,8 @@ if(!empty($_POST))
     <link rel="stylesheet" href="../css/stylos.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/loggin.css">
+    
+
     <title>Municipalidad de Hualpén</title>
 </head>
 <body>
@@ -106,9 +108,11 @@ if(!empty($_POST))
             <a class="nav-link" href="../proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
           <li class="nav-item active letras-menu">
-            <a class="nav-link" href="indexlogeado.php">Enviar postulación</a>
+            <a class="nav-link otro-color" href="indexlogeado.php">Enviar postulación</a>
           </li>
-          
+          <li class="nav-item espacio-ingresar active " >
+            <a class="nav-link btn boton-ingresar-naranjo "  href="../registro/salir.php">Cerrar Sesion</a>
+          </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >

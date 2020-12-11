@@ -103,4 +103,6 @@ body{
     display: none;
 }
 
-
+.otro-color{
+    color: #c58f4e !important;
+}

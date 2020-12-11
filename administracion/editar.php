@@ -157,7 +157,7 @@ if($result_sql == 0){
           </li>
           
           <li class="nav-item espacio-ingresar active " >
-            <a class="nav-link btn  boton-ingresar-naranjo "  href="../index.html">Municipalidad</a>
+            <a class="nav-link btn boton-ingresar-naranjo "  href="../registro/salir.php">Cerrar Sesion</a>
           </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">

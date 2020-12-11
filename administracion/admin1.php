@@ -29,7 +29,7 @@ if(!empty($_POST))
 
 	//consulta para insertar
 	$query_insert = mysqli_query($conexion, "INSERT INTO usuario(run, nombre, email, telefono, pass, fecha_reg, roles_id)
-				VALUES ('$nombre','$email','$telefono','$pass','$fecha_reg','$rol')");
+				VALUES ('$run','$nombre','$email','$telefono','$pass','$fecha_reg','$rol')");
 	//ejecutar consulta
 	
 	if($query_insert){
@@ -115,7 +115,7 @@ if(!empty($_POST))
           </li>
           
           <li class="nav-item espacio-ingresar active " >
-            <a class="nav-link btn  boton-ingresar-naranjo "  href="../index.html">Municipalidad</a>
+            <a class="nav-link btn boton-ingresar-naranjo "  href="../registro/salir.php">Cerrar Sesion</a>
           </li>
           <li>
             <a href="https://www.facebook.com/Munihualpen" target="_blank">

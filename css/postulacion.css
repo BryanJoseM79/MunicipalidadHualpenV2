@@ -14,7 +14,7 @@ body{
 }
 .formulario_de_registro{
     width: 400px !important;
-    background: #404c72 !important;
+    background: #213C5F !important;
     padding: 30px;
     margin: auto;
     margin-top: 250px;
@@ -28,5 +28,8 @@ body{
     box-shadow: 7px 13px 37px #000;
     
     
+}
+.otro-color{
+    color: #c58f4e !important;
 }
 

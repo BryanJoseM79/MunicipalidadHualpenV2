@@ -66,62 +66,72 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
     <link rel="stylesheet" href="../css/stylos.css">
     <link rel="stylesheet" href="../css/stylo_admin.css">
     <link rel="stylesheet" href="../css/administracion2.css">
+    <link rel="stylesheet" href="../css/footer.css">
     
     <title>Municipalidad de Hualpén</title>
 </head>
 <body>
     <!-- MENU -->
-  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top sps sps--abv">
     <div class="container">
       <a class="navbar-brand" href="../index.html">
-        <img class="logotipo" src="../img/unnamed (1).png" alt="logo-municipalidad">
+        <img class="logotipo" src="../img/DDDDDASD.png" alt="logo-municipalidad">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item active letras-menu">
+            <a class="nav-link" href="admin.php">Panel de control<span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link letras-menu" href="../proyectos/proyectos-totales.html">Proyectos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../somos.html">Somos</a>
+          <li class="nav-item letras-menu active">
+            <a class="nav-link" href="../concejomuni/concejomuni.html">Entradas</a>
+          </li> 
+          <li class="nav-item letras-menu active">
+            <a class="nav-link" href="../concejomuni/alcaldesa.html">Usuarios</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown letras-menu active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Servicios
+              Proyectos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../proyectos/proyecto1.html">SOLCITUD DE VIVIENDA</a>
-              <a class="dropdown-item" href="../proyectos/proyecto2.html">SOLICIUTD DE BONO</a>
-              <a class="dropdown-item" href="../proyectos/proyecto3.html">SOLICIUTD DE BONO</a>
+              <a class="dropdown-item" href="../proyectos/proyecto1.html">Brisas de labranza - II</a>
+              <a class="dropdown-item" href="../proyectos/proyecto2.html">Construcción de Nichos</a>
+              <a class="dropdown-item" href="../proyectos/proyecto3.html">Beca alimentación</a>
+              <a class="dropdown-item" href="../proyectos/proyecto4.html">Beneficio Tablet</a>
             </div>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sucursales</a>
+          <li class="nav-item active letras-menu">
+            <a class="nav-link" href="../proyectos/proyectos-totales.html">Proyectos Totales</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item espacio-ingresar">
-            <a class="nav-link btn btn-dark "  href="../login.php">Ingresar</a>
+          
+          <li class="nav-item espacio-ingresar active " >
+            <a class="nav-link btn boton-ingresar-naranjo "  href="../registro/salir.php">Cerrar Sesion</a>
           </li>
           <li>
+            <a href="https://www.facebook.com/Munihualpen" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook" >
+          </a>
+          <a href="https://www.instagram.com/explore/locations/1871656843054017/municipalidad-de-hualpen/" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/instagram-logo.svg" alt="Instagram">
+          </a>
+          <a href="https://twitter.com/hualpenciudad" target="_blank">
             <img class="logotipo-redes-sociales" src="../img/twitter-logo-button.svg" alt="Twitter">
+          </a>
           </li>
         </ul>
       </div>
     </div>
-    
-  </nav>
+</nav>
   <!-- FINAL DEL MENU-->
-
   <header id="header">
   <div class="container">
       <div class="row">
@@ -222,17 +232,53 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 5){
 </div>
                 
 </section>
-<footer class="footersep">
 
-    <img class="logotipo-footer" src="../img/unnamed (1).png" alt=""> <br>
-    <img class="logotipo-redes-sociales" src="../img/facebook-logo-button.svg" alt="Facebook">
-    <img class="logotipo-redes-sociales" src="../img/instagram-logo.svg" alt="Instagram">
-    <img class="logotipo-redes-sociales " src="../img/twitter-logo-button.svg" alt="Twitter">
+  <!-- INICIO FOOTER -->
+  <footer class="espacio-superior-footer">
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-4 col-md3 item">
+      <a href="">
+      <img class="logotipo-footer" src="../img/DDDDDASD.png" alt="">
+      </a>
+    </div>
 
-    <p class="altura-footer"> "Lenga, verdadero sabor de mar"
+  <div class="col-sm-4 col-md3 item">
+    <a href="" class="">
+    <img class="logotipo-ambiente" src="../img/Logo-Ambiente-300x300.png" alt="">
+    </a>
+  </div> 
+    <div class="col-sm-4 col-md3 item">
+      <h3 class="contacto text-left">CONTACTO</h3>
+        <p class="text-left">Calle Patria Nueva Nº 1035 (Ex Escuela Perla del Bio Bio) Hualpén</p>
+        <p class="text-left">Región del Bío Bío, Chile</p>
+        <p class="text-left">Email: municipalidad@hualpenciudad.cl</p>
+        <p class="text-left">Atención Oficina de Partes de Lunes a Viernes de;</p>
+        <p class="text-left">08:30 Hrs a 14:00 Hrs.</p>
+    </div> 
+  </div>
+  <a href="https://www.facebook.com/Munihualpen" target="_blank">
+    <img class="logotipo-redes-sociales-footer" src="../img/facebook-logo-button.svg" alt="Facebook">
+  </a>
+  <a href="https://www.instagram.com/explore/locations/1871656843054017/municipalidad-de-hualpen/" target="_blank">
+    <img class="logotipo-redes-sociales-footer" src="../img/instagram-logo.svg" alt="Instagram">
+  </a>
+  <a href="https://twitter.com/hualpenciudad" target="_blank">
+    <img class="logotipo-redes-sociales-footer " src="../img/twitter-logo-button.svg" alt="Twitter">
+  </a>
+    <p class="altura-footer"> "Lenga, verdadero sabor de mar"</p>
+  </div>
 
-    </p>
-  </footer>
+  
+</footer>
+<div class="footer-copyright text-center py-3 fondo-coppy">
+
+  © 2020 Copyright:
+
+  <a>Municipalidad de Hualpen</a>
+
+</div>
+<!-- FIN DEL FOOTER -->
 </body>
 
 
